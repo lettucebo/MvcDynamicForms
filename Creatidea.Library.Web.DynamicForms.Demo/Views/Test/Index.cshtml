@@ -1,0 +1,29 @@
+﻿@model Creatidea.Library.Web.DynamicForms.Core.Form
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.Raw(Model.RenderHtml(true))
+    <input type="submit" />
+}
+
+
+@section scripts{
+    <script type="text/javascript">
+        /* You can build in client side funcationality with dynamic forms also.
+        jQuery is very good for this sort of thing. */
+
+        $(function () {
+
+            // hide error labels when the user clicks on the offending input element
+            $(':input').focus(function () {
+                $(this).closest('td').children('label.MvcDynamicFieldError').fadeOut();
+            });
+        });
+    </script>
+}
