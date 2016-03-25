@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract.Field" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAhQGAAAEAAYAQAEACAAQAAAAAAAAAIAIAQAAECBAA=</HashCode>
+      <FileName>Fields\Abstract\Field.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract.InputField" Collapsed="true">
+    <Position X="12.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAEKAAHAAQABAAACACEABAAQAAAIUAAAAABQAAE=</HashCode>
+      <FileName>Fields\Abstract\InputField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract.ListField" Collapsed="true">
+    <Position X="16.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAQADQAAAABAAIACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Fields\Abstract\ListField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract.OrientableField" Collapsed="true">
+    <Position X="15" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAAAAQAAIAABAAAAAAAAABAAAAAAAAAoQCAAAAA=</HashCode>
+      <FileName>Fields\Abstract\OrientableField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract.TextField" Collapsed="true">
+    <Position X="8.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAEAAAAAATAAAAAAAAAAAAAEAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Fields\Abstract\TextField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.CheckBox" Collapsed="true">
+    <Position X="11.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAADAAACEAAAAAAAAAAAAAAAIJgAQAAAAAAA=</HashCode>
+      <FileName>Fields\CheckBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.CheckBoxList" Collapsed="true">
+    <Position X="16.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Fields\CheckBoxList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.Literal" Collapsed="true">
+    <Position X="20.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAIAAAQAAAAAAA=</HashCode>
+      <FileName>Fields\Literal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.RadioList" Collapsed="true">
+    <Position X="14" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Fields\RadioList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.Select" Collapsed="true">
+    <Position X="18.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAgAAAAAAAQAAAAAAACAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Fields\Select.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.TextArea" Collapsed="true">
+    <Position X="9.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Fields\TextArea.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Fields.TextBox" Collapsed="true">
+    <Position X="7.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Fields\TextBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.DynamicFormModelBinder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DynamicFormModelBinder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.FieldList" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGIAAEAAAAAAABAQCACABAQAAAAAAAAACAIAAAFQIAA=</HashCode>
+      <FileName>FieldList.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Creatidea.Library.Web.DynamicForms.Core.Form" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAECAAAAAAACAAkAgACAEAAAICAAQgAAAwAA=</HashCode>
+      <FileName>Form.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Fields" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="Creatidea.Library.Web.DynamicForms.Core.Enums.FieldType" Collapsed="true">
+    <Position X="25.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQQAAAACAAIQAAAAAAAAAAAAABAAAAAAAAAAQAEAAAA=</HashCode>
+      <FileName>Enums\FieldType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Creatidea.Library.Web.DynamicForms.Core.Enums.Orientation" Collapsed="true">
+    <Position X="27.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\Orientation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
