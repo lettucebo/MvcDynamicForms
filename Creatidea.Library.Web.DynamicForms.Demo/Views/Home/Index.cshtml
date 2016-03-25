@@ -3,29 +3,43 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>MVC Dynamic Forms</h1>
+    <p class="lead">
+        This web application demonstrates how you can use MVC Dynamic Forms. To learn more,
+        study these files in the MvcDynamicForms.Demo project:
+    </p>
+    <p><a href="https://github.com/lettucebo/Creatidea.Library.Web.DynamicForms" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
+    <div class="col-md-6">
+        <h2>/Models/FormProvider.cs</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Shows how to construct the Form and Field objects.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-md-6">
+        <h2>/Controllers/HomeController.cs</h2>
+        <p>
+            Shows how to use the Form and Field objects in your web applicaiton.
+        </p>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-6">
+        <h2>/Views/Home/Demo.cshtml</h2>
+        <p>
+            Shows how to render the form in your views and demonstrates some basic client side funcationality.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <h2>/Content/DynamicForm.css</h2>
+        <p>
+            Explains how to style the dynamically generated form.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <h2>/Views/Home/Responses.cshtml</h2>
+        <p>
+            Shows how to make use of the user's responses to dynamically generated form fields.
+        </p>
     </div>
 </div>

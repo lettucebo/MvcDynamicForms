@@ -7,6 +7,14 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <link href="~/Content/DynamicForm.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+    <style>
+        body, h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -22,8 +30,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Demo1", "Demo1", "Home")</li>
+                    <li>@Html.ActionLink("Demo2", "Demo2", "Home")</li>
+                    <li>@Html.ActionLink("Demo3", "Demo3", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - CREATIDEA</p>
         </footer>
     </div>
 
