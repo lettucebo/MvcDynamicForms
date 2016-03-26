@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Creatidea.Library.Web.DynamicForms.Core;
 using Creatidea.Library.Web.DynamicForms.Core.Enums;
 using Creatidea.Library.Web.DynamicForms.Core.Fields;
@@ -73,7 +74,7 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Models
                 Prompt = "Enter your full name:",
                 DisplayOrder = 20,
                 Required = true,
-                RequiredMessage = "Your full name is required"
+                RequiredMessage = "Your full name is required",
             };
 
             var gender = new RadioList
@@ -85,7 +86,7 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Models
                 Orientation = Orientation.Vertical
             };
             gender.AddChoices("Male,Female", ",");
-            
+
             var email = new TextBox
             {
                 DisplayOrder = 25,
@@ -155,15 +156,15 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Models
                 InvalidExtensionError = "Image files only.",
                 ValidExtensions = ".jpg,.gif,.png",
                 Required = true,
-                DisplayOrder = 73,
+                DisplayOrder = 73
             };
             file.Validated += new ValidatedEventHandler(file_Validated);
             file.Posted += new FilePostedEventHandler(file_Posted);
 
             var hidden = new Hidden
             {
-                 ResponseTitle = "A Hidden Field",
-                 Value = "some value"
+                ResponseTitle = "A Hidden Field",
+                Value = "some value"
             };
 
             // create form and add fields to it

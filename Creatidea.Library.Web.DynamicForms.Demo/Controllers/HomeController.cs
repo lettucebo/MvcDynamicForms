@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using Creatidea.Library.Web.DynamicForms.Core;
+using Creatidea.Library.Web.DynamicForms.Core.Fields;
 using Creatidea.Library.Web.DynamicForms.Demo.Models;
 
 namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
@@ -117,6 +119,28 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
             {
                 field.Key = key++.ToString();
             }
+        }
+
+        public ActionResult Demo4()
+        {
+            var attr = new Dictionary<string, string>();
+            attr.Add("class", "form-control");
+            attr.Add("placeholder", "Please Enter Name");
+
+            var name = new TextBox
+            {
+                ResponseTitle = "Name",
+                Prompt = "Enter your full name:",
+                DisplayOrder = 20,
+                Required = true,
+                RequiredMessage = "Your full name is required",
+                InputHtmlAttributes = attr
+            };
+
+            var form = new Form();
+            form.AddFields(name);
+
+            return View("Demo", form);
         }
     }
 }
