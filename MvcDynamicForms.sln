@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creatidea.Library.Web.DynamicForms.Core", "Creatidea.Library.Web.DynamicForms.Core\Creatidea.Library.Web.DynamicForms.Core.csproj", "{9624E64A-013F-41E8-84BA-C34EE744685E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcDynamicForms.Core", "MvcDynamicForms.Core\MvcDynamicForms.Core.csproj", "{9624E64A-013F-41E8-84BA-C34EE744685E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creatidea.Library.Web.DynamicForms.Demo", "Creatidea.Library.Web.DynamicForms.Demo\Creatidea.Library.Web.DynamicForms.Demo.csproj", "{5CD10DC0-E828-444B-8C94-4FAECE050D08}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcDynamicForms.Demo", "MvcDynamicForms.Demo\MvcDynamicForms.Demo.csproj", "{5CD10DC0-E828-444B-8C94-4FAECE050D08}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcDynamicForms.Nuget", "MvcDynamicForms.Nuget\MvcDynamicForms.Nuget.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
 EndProject

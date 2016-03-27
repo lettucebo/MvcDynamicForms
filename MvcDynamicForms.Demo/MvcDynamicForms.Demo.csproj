@@ -261,9 +261,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Creatidea.Library.Web.DynamicForms.Core\Creatidea.Library.Web.DynamicForms.Core.csproj">
+    <ProjectReference Include="..\MvcDynamicForms.Core\MvcDynamicForms.Core.csproj">
       <Project>{9624e64a-013f-41e8-84ba-c34ee744685e}</Project>
-      <Name>Creatidea.Library.Web.DynamicForms.Core</Name>
+      <Name>MvcDynamicForms.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
