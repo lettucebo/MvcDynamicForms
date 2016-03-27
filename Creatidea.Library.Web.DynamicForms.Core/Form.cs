@@ -77,6 +77,8 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         /// <summary>
         /// Renders a script block containing a JSON representation of each fields' client side data.
         /// </summary>
+        /// <param name="jsVarName">Name of the js variable.</param>
+        /// <returns>System.String.</returns>
         public string RenderDataScript(string jsVarName)
         {
             if (string.IsNullOrEmpty(jsVarName))
