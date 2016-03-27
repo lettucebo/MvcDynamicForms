@@ -1,8 +1,9 @@
-﻿using System;
-using Creatidea.Library.Web.DynamicForms.Core.Enums;
-
-namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
+﻿namespace MvcDynamicForms.Core.Fields.Abstract
 {
+    using System;
+
+    using MvcDynamicForms.Core.Enums;
+
     /// <summary>
     /// Represents and input field that can be displayed either vertically or horizontally.
     /// </summary>
@@ -22,11 +23,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _orientation;
+                return this._orientation;
             }
             set
             {
-                _orientation = value;
+                this._orientation = value;
             }
         }
         /// <summary>
@@ -36,11 +37,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _inputLabelClass;
+                return this._inputLabelClass;
             }
             set
             {
-                _inputLabelClass = value;
+                this._inputLabelClass = value;
             }
         }
         /// <summary>
@@ -50,11 +51,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _verticalClass;
+                return this._verticalClass;
             }
             set
             {
-                _verticalClass = value;
+                this._verticalClass = value;
             }
         }
         /// <summary>
@@ -64,11 +65,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _horizontalClass;
+                return this._horizontalClass;
             }
             set
             {
-                _horizontalClass = value;
+                this._horizontalClass = value;
             }
         }        
         /// <summary>
@@ -78,11 +79,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _listClass;
+                return this._listClass;
             }
             set
             {
-                _listClass = value;
+                this._listClass = value;
             }
         }
     }

@@ -1,10 +1,11 @@
-﻿using System;
-using System.Text;
-using System.Web.Mvc;
-using Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract;
-
-namespace Creatidea.Library.Web.DynamicForms.Core.Fields
+﻿namespace MvcDynamicForms.Core.Fields
 {
+    using System;
+    using System.Text;
+    using System.Web.Mvc;
+
+    using MvcDynamicForms.Core.Fields.Abstract;
+
     /// <summary>
     /// Represents an html textarea element.
     /// </summary>
@@ -13,23 +14,23 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
     {
         public override string RenderHtml()
         {
-            var html = new StringBuilder(Template);
-            var inputName = GetHtmlId();
+            var html = new StringBuilder(this.Template);
+            var inputName = this.GetHtmlId();
 
             // prompt label
             var prompt = new TagBuilder("label");
-            prompt.SetInnerText(GetPrompt());
+            prompt.SetInnerText(this.GetPrompt());
             prompt.Attributes.Add("for", inputName);
-            prompt.Attributes.Add("class", _promptClass);
+            prompt.Attributes.Add("class", this._promptClass);
             html.Replace(PlaceHolders.Prompt, prompt.ToString());
 
             // error label
-            if (!ErrorIsClear)
+            if (!this.ErrorIsClear)
             {
                 var error = new TagBuilder("label");
                 error.Attributes.Add("for", inputName);
-                error.Attributes.Add("class", _errorClass);
-                error.SetInnerText(Error);
+                error.Attributes.Add("class", this._errorClass);
+                error.SetInnerText(this.Error);
                 html.Replace(PlaceHolders.Error, error.ToString());
             }
 
@@ -37,12 +38,12 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
             var txt = new TagBuilder("textarea");
             txt.Attributes.Add("name", inputName);
             txt.Attributes.Add("id", inputName);
-            txt.SetInnerText(Value);
-            txt.MergeAttributes(_inputHtmlAttributes);
+            txt.SetInnerText(this.Value);
+            txt.MergeAttributes(this._inputHtmlAttributes);
             html.Replace(PlaceHolders.Input, txt.ToString());
 
             // wrapper id
-            html.Replace(PlaceHolders.FieldWrapperId, GetWrapperId());
+            html.Replace(PlaceHolders.FieldWrapperId, this.GetWrapperId());
 
             return html.ToString();
         }

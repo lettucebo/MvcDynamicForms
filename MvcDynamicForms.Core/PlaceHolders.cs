@@ -1,7 +1,7 @@
-﻿using System.Text;
-
-namespace Creatidea.Library.Web.DynamicForms.Core
+﻿namespace MvcDynamicForms.Core
 {
+    using System.Text;
+
     /// <summary>
     /// Static class containing place holder tokens to be used with form and field templates.
     /// </summary>

@@ -1,10 +1,11 @@
-﻿using System;
-using System.Text;
-using System.Web.Mvc;
-using Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract;
-
-namespace Creatidea.Library.Web.DynamicForms.Core.Fields
+﻿namespace MvcDynamicForms.Core.Fields
 {
+    using System;
+    using System.Text;
+    using System.Web.Mvc;
+
+    using MvcDynamicForms.Core.Fields.Abstract;
+
     /// <summary>
     /// Represents an html select element.
     /// </summary>
@@ -19,9 +20,9 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
             get
             {
                 string size;
-                return _inputHtmlAttributes.TryGetValue("size", out size) ? int.Parse(size) : 1;
+                return this._inputHtmlAttributes.TryGetValue("size", out size) ? int.Parse(size) : 1;
             }
-            set { _inputHtmlAttributes["size"] = value.ToString(); }
+            set { this._inputHtmlAttributes["size"] = value.ToString(); }
         }
         /// <summary>
         /// Determines whether the select element will accept multiple selections.
@@ -31,13 +32,13 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
             get
             {
                 string multiple;
-                if (_inputHtmlAttributes.TryGetValue("multiple", out multiple))
+                if (this._inputHtmlAttributes.TryGetValue("multiple", out multiple))
                 {
                     return multiple.ToLower() == "multiple";
                 }
                 return false;
             }
-            set { _inputHtmlAttributes["multiple"] = value.ToString(); }
+            set { this._inputHtmlAttributes["multiple"] = value.ToString(); }
         }
         /// <summary>
         /// The text to be rendered as the first option in the select list when ShowEmptyOption is set to true.
@@ -50,23 +51,23 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
 
         public override string RenderHtml()
         {
-            var html = new StringBuilder(Template);
-            var inputName = GetHtmlId();
+            var html = new StringBuilder(this.Template);
+            var inputName = this.GetHtmlId();
 
             // prompt
             var prompt = new TagBuilder("label");
-            prompt.AddCssClass(_promptClass);
+            prompt.AddCssClass(this._promptClass);
             prompt.Attributes.Add("for", inputName);
-            prompt.SetInnerText(GetPrompt());
+            prompt.SetInnerText(this.GetPrompt());
             html.Replace(PlaceHolders.Prompt, prompt.ToString());
 
             // error label
-            if (!ErrorIsClear)
+            if (!this.ErrorIsClear)
             {
                 var error = new TagBuilder("label");
-                error.AddCssClass(_errorClass);
+                error.AddCssClass(this._errorClass);
                 error.Attributes.Add("for", inputName);
-                error.SetInnerText(Error);
+                error.SetInnerText(this.Error);
                 html.Replace(PlaceHolders.Error, error.ToString());
             }
 
@@ -75,20 +76,20 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
             var select = new TagBuilder("select");
             select.Attributes.Add("id", inputName);
             select.Attributes.Add("name", inputName);
-            select.MergeAttributes(_inputHtmlAttributes);
+            select.MergeAttributes(this._inputHtmlAttributes);
             input.Append(select.ToString(TagRenderMode.StartTag));
 
             // initial empty option
-            if (ShowEmptyOption)
+            if (this.ShowEmptyOption)
             {
                 var opt = new TagBuilder("option");
                 opt.Attributes.Add("value", null);
-                opt.SetInnerText(EmptyOption);
+                opt.SetInnerText(this.EmptyOption);
                 input.Append(opt.ToString());
             }
 
             // options
-            foreach (var choice in _choices)
+            foreach (var choice in this._choices)
             {
                 var opt = new TagBuilder("option");
                 opt.Attributes.Add("value", choice.Value);
@@ -111,7 +112,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
             html.Replace(PlaceHolders.Input, input.ToString() + hidden.ToString(TagRenderMode.SelfClosing));
 
             // wrapper id
-            html.Replace(PlaceHolders.FieldWrapperId, GetWrapperId());
+            html.Replace(PlaceHolders.FieldWrapperId, this.GetWrapperId());
 
             return html.ToString();
         }

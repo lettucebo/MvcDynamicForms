@@ -1,4 +1,4 @@
-﻿namespace Creatidea.Library.Web.DynamicForms.Core
+﻿namespace MvcDynamicForms.Core
 {
     internal static class MagicStrings
     {

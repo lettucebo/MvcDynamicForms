@@ -1,4 +1,4 @@
-﻿namespace Creatidea.Library.Web.DynamicForms.Core.Enums
+﻿namespace MvcDynamicForms.Core.Enums
 {
     /// <summary>
     /// Possible types of Field objects. This enumeration can be used when constructing Field objects from external data.

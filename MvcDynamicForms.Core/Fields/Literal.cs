@@ -1,9 +1,10 @@
-﻿using System;
-using System.Text;
-using Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract;
-
-namespace Creatidea.Library.Web.DynamicForms.Core.Fields
+﻿namespace MvcDynamicForms.Core.Fields
 {
+    using System;
+    using System.Text;
+
+    using MvcDynamicForms.Core.Fields.Abstract;
+
     /// <summary>
     /// Represents html to be rendered on the form.
     /// </summary>
@@ -17,11 +18,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
 
         public override string RenderHtml()
         {
-            var html = new StringBuilder(Template);
-            html.Replace(PlaceHolders.Literal, Html);
+            var html = new StringBuilder(this.Template);
+            html.Replace(PlaceHolders.Literal, this.Html);
 
             // wrapper id
-            html.Replace(PlaceHolders.FieldWrapperId, GetWrapperId());
+            html.Replace(PlaceHolders.FieldWrapperId, this.GetWrapperId());
 
             return html.ToString();
         }

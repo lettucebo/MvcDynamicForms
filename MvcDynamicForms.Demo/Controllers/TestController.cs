@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Creatidea.Library.Web.DynamicForms.Core;
-using Creatidea.Library.Web.DynamicForms.Core.Fields;
-using Creatidea.Library.Web.DynamicForms.Demo.Models;
-
-namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
+﻿namespace MvcDynamicForms.Demo.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using MvcDynamicForms.Core;
+    using MvcDynamicForms.Core.Fields;
+    using MvcDynamicForms.Demo.Models;
+
     public class TestController : Controller
     {
         public ActionResult Index()
@@ -35,7 +33,7 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
 
             form.Serialize = true;
 
-            return View(form);
+            return this.View(form);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -43,10 +41,10 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
         {
             if (form.Validate())
             {
-                return View("Responses", form);
+                return this.View("Responses", form);
             }
 
-            return View(form);
+            return this.View(form);
         }
     }
 }

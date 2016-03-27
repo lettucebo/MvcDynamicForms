@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-
-namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
+﻿namespace MvcDynamicForms.Core.Fields.Abstract
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text.RegularExpressions;
+
     /// <summary>
     /// Represents a dynamically generated form field.
     /// </summary>
@@ -19,7 +19,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
 
         public Field()
         {
-            Template = BuildDefaultTemplate();
+            this.Template = this.BuildDefaultTemplate();
         }
         protected abstract string BuildDefaultTemplate();
 
@@ -34,11 +34,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _display;
+                return this._display;
             }
             set
             {
-                _display = value;
+                this._display = value;
             }
         }
         /// <summary>
@@ -49,11 +49,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _form;
+                return this._form;
             }
             set
             {
-                _form = value;
+                this._form = value;
             }
         }
         /// <summary>
@@ -63,14 +63,14 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _key;
+                return this._key;
             }
             set
             {
-                if (_form != null)
-                    _form.Fields.ValidateKey(value);
+                if (this._form != null)
+                    this._form.Fields.ValidateKey(value);
 
-                _key = value;
+                this._key = value;
             }
         }
         /// <summary>
@@ -80,7 +80,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _dataDictionary;
+                return this._dataDictionary;
             }
         }
         /// <summary>
@@ -90,7 +90,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _dataDictionary.Where(x => x.Value.ClientSide).Count() > 0;
+                return this._dataDictionary.Where(x => x.Value.ClientSide).Count() > 0;
             }
         }
         /// <summary>
@@ -108,7 +108,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         public T GetDataValue<T>(string key)
         {
             DataItem data;
-            if (!_dataDictionary.TryGetValue(key, out data))
+            if (!this._dataDictionary.TryGetValue(key, out data))
             {
                 return default(T);
             }
@@ -121,7 +121,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         /// <param name="value">The object to store</param>
         public void AddDataValue(string key, object value)
         {
-            AddDataValue(key, value, false);
+            this.AddDataValue(key, value, false);
         }
         /// <summary>
         /// Adds an object to the data dictionary.
@@ -131,14 +131,14 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         /// <param name="clientSide">Whether the data will be rendered on the client.</param>
         public void AddDataValue(string key, object value, bool clientSide)
         {
-            _dataDictionary.Add(key, new DataItem(value, clientSide));
+            this._dataDictionary.Add(key, new DataItem(value, clientSide));
         }
         /// <summary>
         /// Gets a value that can be associated with an HTML input element's id or name attribute.
         /// </summary>
         public string GetHtmlId()
         {
-            string id = _form.FieldPrefix + _key;
+            string id = this._form.FieldPrefix + this._key;
 
             if (!Regex.IsMatch(id, RegexPatterns.HtmlId))
                 throw new Exception("The combination of Form.FieldPrefix + Field.Key does not produce a valid id attribute value for an HTML element. It must begin with a letter and can only contain letters, digits, hyphens, and underscores.");
@@ -148,7 +148,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
 
         protected string GetWrapperId()
         {
-            return GetHtmlId() + "_wrapper";
+            return this.GetHtmlId() + "_wrapper";
         }
     }
 }

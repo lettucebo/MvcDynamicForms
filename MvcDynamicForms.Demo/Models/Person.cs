@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Creatidea.Library.Web.DynamicForms.Demo.Models
+﻿namespace MvcDynamicForms.Demo.Models
 {
+    using System;
+
     [Serializable]
     public class Person
     {

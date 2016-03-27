@@ -1,8 +1,8 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
+﻿namespace MvcDynamicForms.Core.Fields.Abstract
 {
+    using System;
+    using System.Text.RegularExpressions;
+
     /// <summary>
     /// Represents an html input field that will accept a text response from the user.
     /// </summary>
@@ -22,11 +22,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _regexMessage;
+                return this._regexMessage;
             }
             set
             {
-                _regexMessage = value;
+                this._regexMessage = value;
             }
         }
         private string _value;
@@ -34,45 +34,45 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _value ?? "";
+                return this._value ?? "";
             }
             set
             {
-                _value = value;
+                this._value = value;
             }
         }
 
         public override string Response
         {
-            get { return Value.Trim(); }
+            get { return this.Value.Trim(); }
         }
         public override bool Validate()
         {
-            ClearError();
+            this.ClearError();
 
-            if (string.IsNullOrEmpty(Response))
+            if (string.IsNullOrEmpty(this.Response))
             {
-                if (Required)
+                if (this.Required)
                 {
                     // invalid: is required and no response has been given
-                    Error = RequiredMessage;
+                    this.Error = this.RequiredMessage;
                 }
             }
             else
             {
-                if (!string.IsNullOrEmpty(RegularExpression))
+                if (!string.IsNullOrEmpty(this.RegularExpression))
                 {
-                    var regex = new Regex(RegularExpression);
-                    if (!regex.IsMatch(Value))
+                    var regex = new Regex(this.RegularExpression);
+                    if (!regex.IsMatch(this.Value))
                     {
                         // invalid: has regex and response doesn't match
-                        Error = RegexMessage;
+                        this.Error = this.RegexMessage;
                     }
                 }
             }
 
-            FireValidated();
-            return ErrorIsClear;
+            this.FireValidated();
+            return this.ErrorIsClear;
         }
     }
 }

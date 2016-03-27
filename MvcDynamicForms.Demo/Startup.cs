@@ -1,14 +1,17 @@
 ﻿using Microsoft.Owin;
-using Owin;
 
-[assembly: OwinStartupAttribute(typeof(Creatidea.Library.Web.DynamicForms.Demo.Startup))]
-namespace Creatidea.Library.Web.DynamicForms.Demo
+using MvcDynamicForms.Demo;
+
+[assembly: OwinStartup(typeof(Startup))]
+namespace MvcDynamicForms.Demo
 {
+    using Owin;
+
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            this.ConfigureAuth(app);
         }
     }
 }

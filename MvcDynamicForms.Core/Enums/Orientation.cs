@@ -1,4 +1,4 @@
-﻿namespace Creatidea.Library.Web.DynamicForms.Core.Enums
+﻿namespace MvcDynamicForms.Core.Enums
 {
     public enum Orientation
     {

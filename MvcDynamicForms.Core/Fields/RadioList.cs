@@ -1,12 +1,13 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using Creatidea.Library.Web.DynamicForms.Core.Enums;
-using Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract;
-
-namespace Creatidea.Library.Web.DynamicForms.Core.Fields
+﻿namespace MvcDynamicForms.Core.Fields
 {
+    using System;
+    using System.Linq;
+    using System.Text;
+    using System.Web.Mvc;
+
+    using MvcDynamicForms.Core.Enums;
+    using MvcDynamicForms.Core.Fields.Abstract;
+
     /// <summary>
     /// Represents a list of html radio button inputs.
     /// </summary>
@@ -15,32 +16,32 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
     {
         public override string RenderHtml()
         {
-            var html = new StringBuilder(Template);
-            var inputName = GetHtmlId();
+            var html = new StringBuilder(this.Template);
+            var inputName = this.GetHtmlId();
 
             // prompt label
             var prompt = new TagBuilder("label");
-            prompt.AddCssClass(_promptClass);
-            prompt.SetInnerText(GetPrompt());
+            prompt.AddCssClass(this._promptClass);
+            prompt.SetInnerText(this.GetPrompt());
             html.Replace(PlaceHolders.Prompt, prompt.ToString());
 
             // error label
-            if (!ErrorIsClear)
+            if (!this.ErrorIsClear)
             {
                 var error = new TagBuilder("label");
-                error.AddCssClass(_errorClass);
-                error.SetInnerText(Error);
+                error.AddCssClass(this._errorClass);
+                error.SetInnerText(this.Error);
                 html.Replace(PlaceHolders.Error, error.ToString());
             }
 
             // list of radio buttons        
             var input = new StringBuilder();
             var ul = new TagBuilder("ul");
-            ul.Attributes.Add("class", _orientation == Orientation.Vertical ? _verticalClass : _horizontalClass);
-            ul.AddCssClass(_listClass);
+            ul.Attributes.Add("class", this._orientation == Orientation.Vertical ? this._verticalClass : this._horizontalClass);
+            ul.AddCssClass(this._listClass);
             input.Append(ul.ToString(TagRenderMode.StartTag));
 
-            var choicesList = _choices.ToList();
+            var choicesList = this._choices.ToList();
             for (int i = 0; i < choicesList.Count; i++)
             {
                 ListItem choice = choicesList[i];
@@ -58,14 +59,14 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
                 rad.Attributes.Add("value", choice.Value);
                 if (choice.Selected) 
                     rad.Attributes.Add("checked", "checked");
-                rad.MergeAttributes(_inputHtmlAttributes);
+                rad.MergeAttributes(this._inputHtmlAttributes);
                 rad.MergeAttributes(choice.HtmlAttributes);
                 input.Append(rad.ToString(TagRenderMode.SelfClosing));
 
                 // checkbox label
                 var lbl = new TagBuilder("label");
                 lbl.Attributes.Add("for", radId);
-                lbl.Attributes.Add("class", _inputLabelClass);
+                lbl.Attributes.Add("class", this._inputLabelClass);
                 lbl.SetInnerText(choice.Text);
                 input.Append(lbl.ToString());
 
@@ -76,7 +77,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
             html.Replace(PlaceHolders.Input, input.ToString());
 
             // wrapper id
-            html.Replace(PlaceHolders.FieldWrapperId, GetWrapperId());
+            html.Replace(PlaceHolders.FieldWrapperId, this.GetWrapperId());
 
             return html.ToString();
             

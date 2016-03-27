@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Creatidea.Library.Web.DynamicForms.Core
+﻿namespace MvcDynamicForms.Core
 {
+    using System;
+    using System.Collections.Generic;
+
     [Serializable]
     public class ListItem
     {
@@ -15,27 +15,27 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         public ListItem(string text, string value) : this(text, value, false) { }
         public ListItem(string text, string value, bool selected)
         {
-            Text = text;
-            Value = value;
-            Selected = selected;
-            HtmlAttributes = new Dictionary<string, string>();
+            this.Text = text;
+            this.Value = value;
+            this.Selected = selected;
+            this.HtmlAttributes = new Dictionary<string, string>();
         }
 
         public override string ToString()
         {
-            return string.Format("[Text: {0}; Value: {1}]", Text, Value);
+            return string.Format("[Text: {0}; Value: {1}]", this.Text, this.Value);
         }
 
         public override bool Equals(object obj)
         {
             return obj != null
                 && obj is ListItem
-                && obj.ToString() == ToString();
+                && obj.ToString() == this.ToString();
         }
 
         public override int GetHashCode()
         {
-            return ("b1721411-cec2-4d59-b18d-09a02298d365" + ToString()).GetHashCode();
+            return ("b1721411-cec2-4d59-b18d-09a02298d365" + this.ToString()).GetHashCode();
         }
 
         /// <summary>

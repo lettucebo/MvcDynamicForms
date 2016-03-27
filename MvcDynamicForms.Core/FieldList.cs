@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract;
-
-namespace Creatidea.Library.Web.DynamicForms.Core
+﻿namespace MvcDynamicForms.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using MvcDynamicForms.Core.Fields.Abstract;
+
     /// <summary>
     /// A collection of Field objects.
     /// </summary>
@@ -16,7 +17,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
 
         internal FieldList(Form form)
         {
-            Form = form;
+            this.Form = form;
         }
 
         internal void ValidateKey(string key)
@@ -24,7 +25,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
             if (string.IsNullOrEmpty(key))
                 throw new ArgumentException("Field keys cannot be null nor empty.");            
 
-            if (_fields.Select(x => x.Key).Contains(key))
+            if (this._fields.Select(x => x.Key).Contains(key))
                 throw new DuplicateException(string.Format(@"The key ""{0}"" is in use by another field.", key));
         }
 
@@ -32,32 +33,32 @@ namespace Creatidea.Library.Web.DynamicForms.Core
 
         public int IndexOf(Field item)
         {
-            return _fields.IndexOf(item);
+            return this._fields.IndexOf(item);
         }
 
         public void Insert(int index, Field item)
         {
-            ValidateKey(item.Key);
-            item.Form = Form;
-            _fields.Insert(index, item);
+            this.ValidateKey(item.Key);
+            item.Form = this.Form;
+            this._fields.Insert(index, item);
         }
 
         public void RemoveAt(int index)
         {
-            _fields[index].Form = null;
-            _fields.RemoveAt(index);
+            this._fields[index].Form = null;
+            this._fields.RemoveAt(index);
         }
 
         public Field this[int index]
         {
             get
             {
-                return _fields[index];
+                return this._fields[index];
             }
             set
             {
-                ValidateKey(value.Key);
-                _fields[index] = value;
+                this.ValidateKey(value.Key);
+                this._fields[index] = value;
             }
         }
 
@@ -67,32 +68,32 @@ namespace Creatidea.Library.Web.DynamicForms.Core
 
         public void Add(Field item)
         {
-            ValidateKey(item.Key);
-            item.Form = Form;
-            _fields.Add(item);
+            this.ValidateKey(item.Key);
+            item.Form = this.Form;
+            this._fields.Add(item);
         }
 
         public void Clear()
         {
-            _fields.ForEach(x => x.Form = null);
-            _fields.Clear();
+            this._fields.ForEach(x => x.Form = null);
+            this._fields.Clear();
         }
 
         public bool Contains(Field item)
         {
-            return _fields.Contains(item);
+            return this._fields.Contains(item);
         }
 
         public void CopyTo(Field[] array, int arrayIndex)
         {
-            _fields.CopyTo(array, arrayIndex);
+            this._fields.CopyTo(array, arrayIndex);
         }
 
         public int Count
         {
             get
             {
-                return _fields.Count;
+                return this._fields.Count;
             }
         }
 
@@ -104,7 +105,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         public bool Remove(Field item)
         {
             item.Form = null;
-            return _fields.Remove(item);
+            return this._fields.Remove(item);
         }
 
         #endregion
@@ -113,7 +114,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
 
         public IEnumerator<Field> GetEnumerator()
         {
-            return _fields.GetEnumerator();
+            return this._fields.GetEnumerator();
         }
 
         #endregion
@@ -122,7 +123,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            return _fields.GetEnumerator();
+            return this._fields.GetEnumerator();
         }
 
         #endregion

@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web.Script.Serialization;
-using System.Web.UI;
-
-namespace Creatidea.Library.Web.DynamicForms.Core
+﻿namespace MvcDynamicForms.Core
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Web.Script.Serialization;
+    using System.Web.UI;
+
     public static class SerializationUtility
     {
         public static string Serialize(object obj)

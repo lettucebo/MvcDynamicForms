@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Creatidea.Library.Web.DynamicForms.Demo.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="MvcDynamicForms.Demo.MvcApplication" Language="C#" %>

@@ -1,10 +1,11 @@
-﻿using System;
-using System.Text;
-using System.Web.Mvc;
-using Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract;
-
-namespace Creatidea.Library.Web.DynamicForms.Core.Fields
+﻿namespace MvcDynamicForms.Core.Fields
 {
+    using System;
+    using System.Text;
+    using System.Web.Mvc;
+
+    using MvcDynamicForms.Core.Fields.Abstract;
+
     /// <summary>
     /// Represents an html hidden input element.
     /// </summary>
@@ -23,7 +24,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
         {
             get
             {
-                return Value;
+                return this.Value;
             }
         }
 
@@ -41,20 +42,20 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
         /// <returns></returns>
         public override string RenderHtml()
         {
-            var html = new StringBuilder(Template);
-            var inputName = GetHtmlId();
+            var html = new StringBuilder(this.Template);
+            var inputName = this.GetHtmlId();
 
             // input element
             var hdn = new TagBuilder("input");
             hdn.Attributes.Add("name", inputName);
             hdn.Attributes.Add("id", inputName);
             hdn.Attributes.Add("type", "hidden");
-            hdn.Attributes.Add("value", Value);
-            hdn.MergeAttributes(_inputHtmlAttributes);
+            hdn.Attributes.Add("value", this.Value);
+            hdn.MergeAttributes(this._inputHtmlAttributes);
             html.Replace(PlaceHolders.Input, hdn.ToString(TagRenderMode.SelfClosing));
 
             // wrapper id
-            html.Replace(PlaceHolders.FieldWrapperId, GetWrapperId());
+            html.Replace(PlaceHolders.FieldWrapperId, this.GetWrapperId());
 
             return html.ToString();
         }

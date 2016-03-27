@@ -1,8 +1,8 @@
 ﻿
-using System;
-
-namespace Creatidea.Library.Web.DynamicForms.Core
+namespace MvcDynamicForms.Core
 {
+    using System;
+
     /// <summary>
     /// Stores arbitrary data.
     /// </summary>
@@ -11,8 +11,8 @@ namespace Creatidea.Library.Web.DynamicForms.Core
     {
         public DataItem(object value, bool clientSide)
         {
-            Value = value;
-            ClientSide = clientSide;
+            this.Value = value;
+            this.ClientSide = clientSide;
         }
 
         /// <summary>

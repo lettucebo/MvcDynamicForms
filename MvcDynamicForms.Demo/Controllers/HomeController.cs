@@ -1,17 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
-using Creatidea.Library.Web.DynamicForms.Core;
-using Creatidea.Library.Web.DynamicForms.Core.Fields;
-using Creatidea.Library.Web.DynamicForms.Demo.Models;
-
-namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
+﻿namespace MvcDynamicForms.Demo.Controllers
 {
+    using System.Collections.Generic;
+    using System.Web.Mvc;
+
+    using MvcDynamicForms.Core;
+    using MvcDynamicForms.Core.Fields;
+    using MvcDynamicForms.Demo.Models;
+
     [HandleError]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         /*
@@ -52,7 +53,7 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
             // the field objects on the page across requests
             form.Serialize = true;
 
-            return View("Demo", form);
+            return this.View("Demo", form);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -62,10 +63,10 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
             // just use a parameter on the Action method that we are posting to
 
             if (form.Validate()) //input is valid
-                return View("Responses", form);
+                return this.View("Responses", form);
 
             // input is not valid
-            return View("Demo", form);
+            return this.View("Demo", form);
         }
 
         public ActionResult Demo2()
@@ -74,9 +75,9 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
 
             // we are going to store the form 
             // in server memory across requests
-            TempData["form"] = form;
+            this.TempData["form"] = form;
 
-            return View("Demo", form);
+            return this.View("Demo", form);
         }
 
         [AcceptVerbs(HttpVerbs.Post)]
@@ -85,31 +86,31 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
         {
             // we have to get the form object from
             // server memory and manually perform model binding
-            var form = (Form)TempData["form"];
-            UpdateModel(form);
+            var form = (Form)this.TempData["form"];
+            this.UpdateModel(form);
 
             if (form.Validate()) // input is valid
-                return View("Responses", form);
+                return this.View("Responses", form);
 
             // input is not valid
-            TempData["form"] = form;
-            return View("Demo", form);
+            this.TempData["form"] = form;
+            return this.View("Demo", form);
         }
 
         public ActionResult Demo3()
         {
             // recreate the form and set the keys
             var form = FormProvider.GetForm();
-            Demo3SetKeys(form);
+            this.Demo3SetKeys(form);
 
             // set user input on recreated form
-            UpdateModel(form);
+            this.UpdateModel(form);
 
-            if (Request.HttpMethod == "POST" && form.Validate()) // input is valid
-                return View("Responses", form);
+            if (this.Request.HttpMethod == "POST" && form.Validate()) // input is valid
+                return this.View("Responses", form);
 
             // input is not valid
-            return View("Demo", form);
+            return this.View("Demo", form);
         }
 
         void Demo3SetKeys(Form form)
@@ -140,7 +141,7 @@ namespace Creatidea.Library.Web.DynamicForms.Demo.Controllers
             var form = new Form();
             form.AddFields(name);
 
-            return View("Demo", form);
+            return this.View("Demo", form);
         }
     }
 }

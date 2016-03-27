@@ -1,11 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Web.Mvc;
-using Creatidea.Library.Web.DynamicForms.Core.Fields;
-using Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract;
-
-namespace Creatidea.Library.Web.DynamicForms.Core
+﻿namespace MvcDynamicForms.Core
 {
+    using System;
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using MvcDynamicForms.Core.Fields;
+    using MvcDynamicForms.Core.Fields.Abstract;
+
     class DynamicFormModelBinder : IModelBinder
     {
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)

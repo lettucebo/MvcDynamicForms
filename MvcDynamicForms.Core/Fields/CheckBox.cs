@@ -1,10 +1,11 @@
-﻿using System;
-using System.Text;
-using System.Web.Mvc;
-using Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract;
-
-namespace Creatidea.Library.Web.DynamicForms.Core.Fields
+﻿namespace MvcDynamicForms.Core.Fields
 {
+    using System;
+    using System.Text;
+    using System.Web.Mvc;
+
+    using MvcDynamicForms.Core.Fields.Abstract;
+
     /// <summary>
     /// Represents a single html checkbox input field.
     /// </summary>
@@ -21,11 +22,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
         {
             get
             {
-                return _checkedValue;
+                return this._checkedValue;
             }
             set
             {
-                _checkedValue = value;
+                this._checkedValue = value;
             }
         }
         /// <summary>
@@ -35,11 +36,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
         {
             get
             {
-                return _uncheckedValue;
+                return this._uncheckedValue;
             }
             set
             {
-                _uncheckedValue = value;
+                this._uncheckedValue = value;
             }
         }
         /// <summary>
@@ -51,42 +52,42 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
         {
             get
             {
-                return Checked ? _checkedValue : _uncheckedValue;
+                return this.Checked ? this._checkedValue : this._uncheckedValue;
             }
         }
 
         public CheckBox()
         {
             // give the checkbox a different default prompt class
-            _promptClass = "MvcDynamicCheckboxPrompt";
+            this._promptClass = "MvcDynamicCheckboxPrompt";
         }
 
         public override bool Validate()
         {
-            ClearError();
+            this.ClearError();
 
-            if (Required && !Checked)
+            if (this.Required && !this.Checked)
             {
                 // Isn't valid
-                Error = _requiredMessage;
+                this.Error = this._requiredMessage;
             }
 
-            FireValidated();
-            return ErrorIsClear;
+            this.FireValidated();
+            return this.ErrorIsClear;
         }
 
         public override string RenderHtml()
         {
-            var inputName = GetHtmlId();
-            var html = new StringBuilder(Template);
+            var inputName = this.GetHtmlId();
+            var html = new StringBuilder(this.Template);
 
             // error label
-            if (!ErrorIsClear)
+            if (!this.ErrorIsClear)
             {
                 var error = new TagBuilder("label");
-                error.SetInnerText(Error);
+                error.SetInnerText(this.Error);
                 error.Attributes.Add("for", inputName);
-                error.AddCssClass(_errorClass);
+                error.AddCssClass(this._errorClass);
                 html.Replace(PlaceHolders.Error, error.ToString());
             }
 
@@ -95,9 +96,9 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
             chk.Attributes.Add("id", inputName);
             chk.Attributes.Add("name", inputName);
             chk.Attributes.Add("type", "checkbox");
-            if (Checked) chk.Attributes.Add("checked", "checked");
+            if (this.Checked) chk.Attributes.Add("checked", "checked");
             chk.Attributes.Add("value", bool.TrueString);
-            chk.MergeAttributes(_inputHtmlAttributes);
+            chk.MergeAttributes(this._inputHtmlAttributes);
 
             // hidden input (so that value is posted when checkbox is unchecked)
             var hdn = new TagBuilder("input");
@@ -109,13 +110,13 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields
 
             // prompt label
             var prompt = new TagBuilder("label");
-            prompt.SetInnerText(GetPrompt());
+            prompt.SetInnerText(this.GetPrompt());
             prompt.Attributes.Add("for", inputName);
-            prompt.Attributes.Add("class", _promptClass);
+            prompt.Attributes.Add("class", this._promptClass);
             html.Replace(PlaceHolders.Prompt, prompt.ToString());
 
             // wrapper id
-            html.Replace(PlaceHolders.FieldWrapperId, GetWrapperId());
+            html.Replace(PlaceHolders.FieldWrapperId, this.GetWrapperId());
 
             return html.ToString();
         }

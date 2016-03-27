@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using System.Xml.Linq;
-using Creatidea.Library.Web.DynamicForms.Core.Fields;
-using Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract;
-
-namespace Creatidea.Library.Web.DynamicForms.Core
+﻿namespace MvcDynamicForms.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Web.Mvc;
+    using System.Xml.Linq;
+
+    using MvcDynamicForms.Core.Fields;
+    using MvcDynamicForms.Core.Fields.Abstract;
+
     /// <summary>
     /// Represents an html input form that can be dynamically rendered at runtime.
     /// </summary>
@@ -27,7 +28,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         {
             get
             {
-                return _fields;
+                return this._fields;
             }
         }
         /// <summary>
@@ -38,11 +39,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         {
             get
             {
-                return _fieldPrefix;
+                return this._fieldPrefix;
             }
             set
             {
-                _fieldPrefix = value ?? "";
+                this._fieldPrefix = value ?? "";
             }
         }
         /// <summary>
@@ -56,14 +57,14 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         {
             get
             {
-                return _fields.OfType<InputField>();
+                return this._fields.OfType<InputField>();
             }
         }
 
         public Form()
         {
-            _fields = new FieldList(this);
-            Template = BuildDefaultTemplate();
+            this._fields = new FieldList(this);
+            this.Template = this.BuildDefaultTemplate();
         }
 
         private string BuildDefaultTemplate()
@@ -84,10 +85,10 @@ namespace Creatidea.Library.Web.DynamicForms.Core
             if (string.IsNullOrEmpty(jsVarName))
                 jsVarName = "MvcDynamicFieldData";
 
-            if (_fields.Any(x => x.HasClientData))
+            if (this._fields.Any(x => x.HasClientData))
             {
                 var data = new Dictionary<string, Dictionary<string, DataItem>>();
-                foreach (var field in _fields.Where(x => x.HasClientData))
+                foreach (var field in this._fields.Where(x => x.HasClientData))
                     data.Add(field.Key, field.DataDictionary);
 
                 var script = new TagBuilder("script");
@@ -109,7 +110,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         /// <returns>Returns true if every InputField object is valid. False is returned otherwise.</returns>
         public bool Validate()
         {
-            return Validate(true);
+            return this.Validate(true);
         }
         /// <summary>
         /// Validates each displayed InputField object contained in the Fields collection. 
@@ -121,7 +122,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         {
             bool isValid = true;
 
-            foreach (var field in InputFields.Where(x => !onlyDisplayed || x.Display))
+            foreach (var field in this.InputFields.Where(x => !onlyDisplayed || x.Display))
                 isValid = isValid & field.Validate();
 
             return isValid;
@@ -135,13 +136,13 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         public string RenderHtml(bool formatHtml)
         {
             var fieldsHtml = new StringBuilder();
-            foreach (var field in _fields.Where(x => x.Display).OrderBy(x => x.DisplayOrder))
+            foreach (var field in this._fields.Where(x => x.Display).OrderBy(x => x.DisplayOrder))
                 fieldsHtml.Append(field.RenderHtml());
 
-            var html = new StringBuilder(Template);
+            var html = new StringBuilder(this.Template);
             html.Replace(PlaceHolders.Fields, fieldsHtml.ToString());
 
-            if (Serialize)
+            if (this.Serialize)
             {
                 var hdn = new TagBuilder("input");
                 hdn.Attributes["type"] = "hidden";
@@ -151,7 +152,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
                 html.Replace(PlaceHolders.SerializedForm, hdn.ToString(TagRenderMode.SelfClosing));
             }
 
-            html.Replace(PlaceHolders.DataScript, RenderDataScript(null));
+            html.Replace(PlaceHolders.DataScript, this.RenderDataScript(null));
 
             PlaceHolders.RemoveAll(html);
 
@@ -166,14 +167,14 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         /// <returns>Returns a string containing the rendered html of every contained Field object.</returns>
         public string RenderHtml()
         {
-            return RenderHtml(false);
+            return this.RenderHtml(false);
         }
         /// <summary>
         /// This method clears the Error property of each contained InputField.
         /// </summary>
         public void ClearAllErrors()
         {
-            foreach (var inputField in InputFields)
+            foreach (var inputField in this.InputFields)
                 inputField.ClearError();
         }
         /// <summary>
@@ -184,7 +185,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         {
             foreach (var field in fields)
             {
-                _fields.Add(field);
+                this._fields.Add(field);
             }
         }
         /// <summary>
@@ -195,7 +196,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         public List<Response> GetResponses(bool completedOnly)
         {
             var responses = new List<Response>();
-            foreach (var field in InputFields.OrderBy(x => x.DisplayOrder))
+            foreach (var field in this.InputFields.OrderBy(x => x.DisplayOrder))
             {
                 var response = new Response
                 {
@@ -223,7 +224,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core
 
         internal void FireModelBoundEvents()
         {
-            foreach (var fileUpload in Fields.Where(x => x is FileUpload).Cast<FileUpload>())
+            foreach (var fileUpload in this.Fields.Where(x => x is FileUpload).Cast<FileUpload>())
             {               
                 fileUpload.FireFilePosted();
             }

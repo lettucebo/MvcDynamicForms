@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Creatidea.Library.Web.DynamicForms.Core
+﻿namespace MvcDynamicForms.Core
 {
+    using System;
+
     class DuplicateException : Exception
     {
         private string _message;
@@ -9,13 +9,13 @@ namespace Creatidea.Library.Web.DynamicForms.Core
         {
             get
             {
-                return _message;
+                return this._message;
             }
         }
 
         public DuplicateException(string message)
         {
-            _message = message;
+            this._message = message;
         }
     }
 }

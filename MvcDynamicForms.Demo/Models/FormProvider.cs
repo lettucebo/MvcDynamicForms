@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using Creatidea.Library.Web.DynamicForms.Core;
-using Creatidea.Library.Web.DynamicForms.Core.Enums;
-using Creatidea.Library.Web.DynamicForms.Core.Fields;
-using Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract;
-
-namespace Creatidea.Library.Web.DynamicForms.Demo.Models
+﻿namespace MvcDynamicForms.Demo.Models
 {
+    using System;
+
+    using MvcDynamicForms.Core;
+    using MvcDynamicForms.Core.Enums;
+    using MvcDynamicForms.Core.Fields;
+    using MvcDynamicForms.Core.Fields.Abstract;
+
     public static class FormProvider
     {
         public static Form GetForm()

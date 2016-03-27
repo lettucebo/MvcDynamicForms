@@ -1,4 +1,4 @@
-﻿namespace Creatidea.Library.Web.DynamicForms.Core
+﻿namespace MvcDynamicForms.Core
 {
     /// <summary>
     /// Class that represents the end user's response to an InputField object.

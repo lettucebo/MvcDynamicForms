@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Mvc;
-
-namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
+﻿namespace MvcDynamicForms.Core.Fields.Abstract
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Mvc;
 
     public delegate void ValidatedEventHandler(InputField inputField, InputFieldValidationEventArgs e);
 
@@ -35,11 +34,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _promptClass;
+                return this._promptClass;
             }
             set
             {
-                _promptClass = value;
+                this._promptClass = value;
             }
         }
         /// <summary>
@@ -57,11 +56,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _requiredMessage;
+                return this._requiredMessage;
             }
             set
             {
-                _requiredMessage = value;
+                this._requiredMessage = value;
             }
         }
         /// <summary>
@@ -75,11 +74,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _errorClass;
+                return this._errorClass;
             }
             set
             {
-                _errorClass = value;
+                this._errorClass = value;
             }
         }
         /// <summary>
@@ -89,7 +88,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return string.IsNullOrEmpty(Error);
+                return string.IsNullOrEmpty(this.Error);
             }
         }
         /// <summary>
@@ -101,11 +100,11 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         {
             get
             {
-                return _inputHtmlAttributes;
+                return this._inputHtmlAttributes;
             }
             set
             {
-                _inputHtmlAttributes = value;
+                this._inputHtmlAttributes = value;
             }
         }
         /// <summary>
@@ -118,7 +117,7 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
         /// </summary>
         public void ClearError()
         {
-            Error = null;
+            this.Error = null;
         }
 
         protected override string BuildDefaultTemplate()
@@ -132,18 +131,18 @@ namespace Creatidea.Library.Web.DynamicForms.Core.Fields.Abstract
 
         protected string GetPrompt()
         {
-            return Prompt ?? ResponseTitle ?? _key;
+            return this.Prompt ?? this.ResponseTitle ?? this._key;
         }
 
         internal string GetResponseTitle()
         {
-            return ResponseTitle ?? Prompt ?? _key;
+            return this.ResponseTitle ?? this.Prompt ?? this._key;
         }
 
         protected virtual void FireValidated()
         {
-            if (Validated != null)
-                Validated(this, new InputFieldValidationEventArgs { IsValid = ErrorIsClear });
+            if (this.Validated != null)
+                this.Validated(this, new InputFieldValidationEventArgs { IsValid = this.ErrorIsClear });
         }
 
     }
