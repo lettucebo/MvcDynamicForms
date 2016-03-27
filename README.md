@@ -27,7 +27,7 @@ using MvcDynamicForms.Core.Fields;
 
 First off, below Demos do the exact same thing from the end user's perspective. The difference is in how the Form object is persisted across requests.
 
-Most often, you'll need to keep the original Form and Field objects around for as long as your user is working on completing the form. This is because, when InputField objects are constructed, they are keyed with a new Guid. See [How to #1]() & [How to #2]() for examples.
+Most often, you'll need to keep the original Form and Field objects around for as long as your user is working on completing the form. This is because, when InputField objects are constructed, they are keyed with a new Guid. See [How to #1](https://github.com/lettucebo/MvcDynamicForms#how-to-1) & [How to #2](https://github.com/lettucebo/MvcDynamicForms#how-to-2) for examples.
 
 # How to #1
 
