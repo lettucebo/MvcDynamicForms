@@ -1,0 +1,55 @@
+﻿
+/* This wraps all html rendered by Mvc Dynamic Forms */
+div.MvcDynamicForm {}
+
+/* By default, every field is wrapped with this.
+   The developer can modify the wrapping element
+   and nearly all class names of rendered Html  */
+div.MvcFieldWrapper
+{    
+    margin-bottom: 2em; /* provides spacing between fields */
+}
+
+/* These are used to style the labels that accompany
+   your input elements. */
+label.MvcDynamicFieldPrompt, label.MvcDynamicFieldError
+{
+    display: block; /* causes labels to appear above their input elements */
+}
+
+label.MvcDynamicFieldError
+{
+    color:Red; /* ERROR! */
+}
+
+/* Used to style the unordered lists that contain
+   radio button lists and checkbox lists */
+ul.MvcDynamicOrientableList
+{
+    list-style-type: none; /* prevents bullets from showing next to input elements */
+}
+
+ul.MvcDynamicOrientableList label
+{
+    display:inline;
+}
+
+/*  Used to style the list fields that can
+    go in either vertical or horizontal directions
+    (CheckboxList & RadioList) */
+ul.MvcDynamicHorizontal li
+{
+    display:inline; /* causs list items to display horizontally */
+    margin-right:1em; /* provides spacing between input elements */
+}
+
+/* Other unused selectors. These should be self-explanatory by now. */
+ul.MvcDynamicVertical {}
+ul.MvcDynamicVertical li {}
+label.MvcDynamicCheckboxPrompt {}
+
+/*  You can view html source or use a DOM inspector 
+    to figure out how to select elements to style them. */
+    
+    
+    

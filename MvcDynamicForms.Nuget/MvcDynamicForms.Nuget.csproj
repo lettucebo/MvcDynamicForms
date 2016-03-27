@@ -49,6 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\Scripts\jQuery.MvcDynamicForms.js" />
     <None Include="NuGetPackage.ps1" />
     <None Include="NuGetSetup.ps1" />
     <None Include="NuGet.exe" />
@@ -59,9 +60,12 @@
     <None Include="tools\uninstall.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="content\" />
-    <Folder Include="lib\" />
     <Folder Include="src\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\Content\DynamicForm.css" />
+    <Content Include="lib\MvcDynamicForms.Core.dll" />
+    <Content Include="lib\MvcDynamicForms.Core.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
