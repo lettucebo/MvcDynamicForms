@@ -2,7 +2,15 @@
 
 Create dynamic forms in ASP.NET MVC.
 
-#Requirements
+# Fork Source
+
+This is fork of ronnieoverby's project [ASP.NET MVC Dynamic Forms](https://mvcdynamicforms.codeplex.com/). 
+
+Because [ASP.NET MVC Dynamic Forms](https://mvcdynamicforms.codeplex.com/) is no longer maintained. And original project is write for ASP.NET MVC 2 and below.
+
+So I update it to ASP.NET MVC5.
+
+# Requirements
 
 this library requires .NET 4.5.2 and above.
 
@@ -31,8 +39,21 @@ Most often, you'll need to keep the original Form and Field objects around for a
 
 You can key your InputFields manually by setting the InputField.Key property. If you do this and can guarantee that the Fields and their Keys will not change after a complete reconstruction of all objects, then you don't have to persist the objects across requests. See [How to #3](#how-to-3).
 
-# How to #1
+### How to #1
 
-# How to #2
+In Demo 1, the Form object graph is serialized to a string and stored in a hidden field in the page's HTML.
 
-# How to #3
+### How to #2
+
+In Demo 2, the Form object graph is simply stored in TempData (short lived session state).
+
+### How to #3
+
+In Demo 3, the Form object graph is not persisted across requests. It is reconstructed on each request and the InputField's keys are set manually.
+
+### Note
+The serialization approach (demo 1) results in more concise code in the controller. Serializing the Form is also more reliable, in my opinion.
+
+However, response time increases because of serialized data and the (de)serialization process takes time, as well. 
+
+The approach you take depends on your needs.
