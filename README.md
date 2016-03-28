@@ -47,7 +47,7 @@ Detail information is in the FormProvider.cs comment.
 
 <hr>
 
-### How to #1 Store From through ModelBinding
+### How to #1 Passing Form through ModelBinding
 
 In this Demo, the Form object graph is serialized to a string and stored in a hidden field in the page's HTML.
 
@@ -78,7 +78,7 @@ Showing the form html
 
 ### How to #2 Show the response
 
-In this Demo, simply show how to echo the response.
+In this Demo, simply show how to echo the responses.
 
 ``` csharp
 [HttpPost]
@@ -111,13 +111,88 @@ foreach (var response in Model.GetResponses(true))
 }
 ```
 
-### How to #3
+### How to #3 Passing Form through TempData
 
-In Demo 2, the Form object graph is simply stored in TempData (short lived session state).
+In this Demo, the Form object graph is simply stored in TempData (short lived session state).
 
-### How to #3
+``` csharp
+public ActionResult Demo2()
+{
+    var form = FormProvider.GetForm();
 
-In Demo 3, the Form object graph is not persisted across requests. It is reconstructed on each request and the InputField's keys are set manually.
+    // we are going to store the form 
+    // in server memory across requests
+    this.TempData["form"] = form;
+
+    return this.View("Demo", form);
+}
+
+[HttpPost]
+[ActionName("Demo2")]
+public ActionResult Demo2Post()
+{
+    // we have to get the form object from
+    // server memory and manually perform model binding
+    var form = (Form)this.TempData["form"];
+    this.UpdateModel(form);
+
+    if (form.Validate()) // input is valid
+        return this.View("Responses", form);
+
+    // input is not valid
+    this.TempData["form"] = form;
+    return this.View("Demo", form);
+}
+```
+
+### How to #4
+
+In this Demo, the Form object graph is not persisted across requests. It is reconstructed on each request and the InputField's keys are set manually.
+
+``` csharp
+public ActionResult Demo3()
+{
+    // recreate the form and set the keys
+    var form = FormProvider.GetForm();
+    this.Demo3SetKeys(form);
+
+    // set user input on recreated form
+    this.UpdateModel(form);
+
+    if (this.Request.HttpMethod == "POST" && form.Validate()) // input is valid
+        return this.View("Responses", form);
+
+    // input is not valid
+    return this.View("Demo", form);
+}
+
+void Demo3SetKeys(Form form)
+{
+    int key = 1;
+    foreach (var field in form.InputFields)
+    {
+        field.Key = key++.ToString();
+    }
+}
+```
+
+### How to #5 Custom Html Attribute
+
+``` csharp
+var attr = new Dictionary<string, string>();
+attr.Add("class", "form-control");
+attr.Add("placeholder", "Please Enter Name");
+
+var name = new TextBox
+{
+    ResponseTitle = "Name",
+    Prompt = "Enter your full name:",
+    DisplayOrder = 20,
+    Required = true,
+    RequiredMessage = "Your full name is required",
+    InputHtmlAttributes = attr
+};
+```
 
 ### Note
 The serialization approach (demo 1) results in more concise code in the controller. Serializing the Form is also more reliable, in my opinion.
