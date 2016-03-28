@@ -39,9 +39,42 @@ Most often, you'll need to keep the original Form and Field objects around for a
 
 You can key your InputFields manually by setting the InputField.Key property. If you do this and can guarantee that the Fields and their Keys will not change after a complete reconstruction of all objects, then you don't have to persist the objects across requests. See [How to #3](#how-to-3).
 
-### How to #1
+<hr>
 
-In Demo 1, the Form object graph is serialized to a string and stored in a hidden field in the page's HTML.
+FormProvider.cs provide demo data for showing how MvcDynamicForms works.
+
+Detail information is in the FormProvider.cs comment.
+
+<hr>
+
+### How to #1 Store From through ModelBinding
+
+In this Demo, the Form object graph is serialized to a string and stored in a hidden field in the page's HTML.
+
+``` csharp
+public ActionResult Demo1()
+{
+    var form = FormProvider.GetForm();
+
+    // we are going to store the form and 
+    // the field objects on the page across requests
+    form.Serialize = true;
+
+    return this.View("Demo", form);
+}
+```
+
+Showing the form html
+``` html
+@model MvcDynamicForms.Core.Form
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Raw(Model.RenderHtml(true))
+
+    <input type="submit" value="Submit" />
+}
+```
 
 ### How to #2
 

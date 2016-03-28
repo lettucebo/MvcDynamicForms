@@ -54,8 +54,8 @@
              * 
              * Check out
              *    /Controllers/HomeController.cs
-             *    /Views/Home/Demo.aspx
-             *    /Views/Home/Responses.aspx
+             *    /Views/Home/Demo.cshtml
+             *    /Views/Home/Responses.cshtml
              * to learn how to use the Form object in your web application.
              */
 
