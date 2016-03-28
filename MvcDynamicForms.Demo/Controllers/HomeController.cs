@@ -56,9 +56,9 @@
             return this.View("Demo", form);
         }
 
-        [AcceptVerbs(HttpVerbs.Post)]
+        [HttpPost]
         public ActionResult Demo1(Form form)
-        {   //                           ^
+        {
             // no need to retrieve the form object from anywhere
             // just use a parameter on the Action method that we are posting to
 
@@ -80,7 +80,7 @@
             return this.View("Demo", form);
         }
 
-        [AcceptVerbs(HttpVerbs.Post)]
+        [HttpPost]
         [ActionName("Demo2")]
         public ActionResult Demo2Post()
         {

@@ -76,7 +76,42 @@ Showing the form html
 }
 ```
 
-### How to #2
+### How to #2 Show the response
+
+In this Demo, simply show how to echo the response.
+
+``` csharp
+[HttpPost]
+public ActionResult Demo1(Form form)
+{
+    // no need to retrieve the form object from anywhere
+    // just use a parameter on the Action method that we are posting to
+
+    if (form.Validate()) //input is valid
+        return this.View("Responses", form);
+
+    // input is not valid
+    return this.View("Demo", form);
+}
+```
+
+``` html
+@model MvcDynamicForms.Core.Form
+
+foreach (var response in Model.GetResponses(true))
+{
+    <tr>
+        <td>
+            @response.Title
+        </td>
+        <td>
+            @response.Value
+        </td>
+    </tr>
+}
+```
+
+### How to #3
 
 In Demo 2, the Form object graph is simply stored in TempData (short lived session state).
 
