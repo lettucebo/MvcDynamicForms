@@ -67,7 +67,6 @@
   <ItemGroup>
     <Content Include="content\Content\DynamicForm.css" />
     <Content Include="lib\MvcDynamicForms.Core.dll" />
-    <Content Include="lib\MvcDynamicForms.Core.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
