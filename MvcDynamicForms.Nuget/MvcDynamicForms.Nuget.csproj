@@ -54,7 +54,6 @@
     <Content Include="content\Scripts\jQuery.MvcDynamicForms.js" />
     <Content Include="lib\MvcDynamicForms.Core.pdb" />
     <Content Include="lib\MvcDynamicForms.Core.XML" />
-    <None Include="NuGetPackage.ps1" />
     <None Include="NuGetSetup.ps1" />
     <None Include="NuGet.exe" />
     <None Include="NuGet.config" />
