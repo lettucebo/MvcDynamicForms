@@ -1,4 +1,0 @@
-language: csharp
-solution: MvcDynamicForms.sln
-install:
-- nuget restore MvcDynamicForms.sln
