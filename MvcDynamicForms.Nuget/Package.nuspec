@@ -21,7 +21,7 @@
         <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
         <copyright>Copyright  2016</copyright>
         <dependencies>
-            <group targetFramework="net452">
+            <group targetFramework="net45">
                 <dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
                 <dependency id="Microsoft.AspNet.Razor" version="3.2.3" />
                 <dependency id="Microsoft.AspNet.WebPages" version="3.2.3" />
