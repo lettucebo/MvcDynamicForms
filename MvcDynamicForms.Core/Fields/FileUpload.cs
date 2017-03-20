@@ -35,6 +35,11 @@
         /// </summary>
         public string ValidExtensions { get; set; }
 
+        /// <summary>
+        /// file input add multiple to enable multiple upload
+        /// </summary>
+        public bool UseMultiple { get; set; }
+
         public bool FileWasPosted
         {
             get { return this.PostedFile != null && !string.IsNullOrEmpty(this.PostedFile.FileName); }
@@ -55,7 +60,7 @@
             }
             else if (!string.IsNullOrEmpty(this.ValidExtensions))
             {
-                var exts = this.ValidExtensions.ToUpper().Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries);
+                var exts = this.ValidExtensions.ToUpper().Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                 if (!exts.Contains(Path.GetExtension(this.PostedFile.FileName).ToUpper()))
                 {
                     this.Error = this.InvalidExtensionError;
@@ -89,12 +94,18 @@
             }
 
             // input element
-            var txt = new TagBuilder("input");
-            txt.Attributes.Add("name", inputName);
-            txt.Attributes.Add("id", inputName);
-            txt.Attributes.Add("type", "file");
-            txt.MergeAttributes(this._inputHtmlAttributes);
-            html.Replace(PlaceHolders.Input, txt.ToString(TagRenderMode.SelfClosing));
+            var input = new TagBuilder("input");
+            input.Attributes.Add("name", inputName);
+            input.Attributes.Add("id", inputName);
+            input.Attributes.Add("type", "file");
+            input.MergeAttributes(this._inputHtmlAttributes);
+
+            if (UseMultiple)
+            {
+                input.Attributes.Add("multiple", "multiple");
+            }
+
+            html.Replace(PlaceHolders.Input, input.ToString(TagRenderMode.SelfClosing));
 
             // wrapper id
             html.Replace(PlaceHolders.FieldWrapperId, this.GetWrapperId());

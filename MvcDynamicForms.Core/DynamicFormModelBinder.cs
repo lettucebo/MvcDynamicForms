@@ -1,4 +1,6 @@
-﻿namespace MvcDynamicForms.Core
+﻿using System.Web;
+
+namespace MvcDynamicForms.Core
 {
     using System;
     using System.Linq;
@@ -15,7 +17,7 @@
 
             var allKeys = postedForm.AllKeys.Union(postedFiles.AllKeys);
 
-            var form = (Form) bindingContext.Model;
+            var form = (Form)bindingContext.Model;
             if (form == null && !string.IsNullOrEmpty(postedForm[MagicStrings.MvcDynamicSerializedForm]))
             {
                 form = SerializationUtility.Deserialize<Form>(postedForm[MagicStrings.MvcDynamicSerializedForm]);
@@ -35,14 +37,14 @@
 
                 if (dynField is TextField)
                 {
-                    var txtField = (TextField) dynField;
+                    var txtField = (TextField)dynField;
                     txtField.Value = postedForm[key];
                 }
                 else if (dynField is ListField)
                 {
-                    var lstField = (ListField) dynField;
+                    var lstField = (ListField)dynField;
 
-                    // clear all choice selections            
+                    // clear all choice selections
                     foreach (var choice in lstField.Choices)
                         choice.Selected = false;
 
@@ -58,17 +60,17 @@
                 }
                 else if (dynField is CheckBox)
                 {
-                    var chkField = (CheckBox) dynField;
+                    var chkField = (CheckBox)dynField;
                     chkField.Checked = bool.Parse(postedForm.GetValues(key)[0]);
                 }
                 else if (dynField is FileUpload)
                 {
-                    var fileField = (FileUpload) dynField;
+                    var fileField = (FileUpload)dynField;
                     fileField.PostedFile = postedFiles[key];
                 }
                 else if (dynField is Hidden)
                 {
-                    var hiddenField = (Hidden) dynField;
+                    var hiddenField = (Hidden)dynField;
                     hiddenField.Value = postedForm[key];
                 }
             }

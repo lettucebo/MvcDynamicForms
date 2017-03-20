@@ -161,7 +161,8 @@
                 InvalidExtensionError = "Image files only.",
                 ValidExtensions = ".jpg,.gif,.png",
                 Required = true,
-                DisplayOrder = 73
+                DisplayOrder = 73,
+                UseMultiple = true
             };
             file.Validated += new ValidatedEventHandler(file_Validated);
             file.Posted += new FilePostedEventHandler(file_Posted);
