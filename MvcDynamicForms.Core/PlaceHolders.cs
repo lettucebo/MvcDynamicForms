@@ -30,77 +30,63 @@
         /// </summary>
         public static string Fields
         {
-            get
-            {
-                return FIELDS;
-            }
+            get { return FIELDS; }
         }
+
         /// <summary>
         /// Place holder for an InputField's input elements. 
         /// For use only with the InputField.Template property.
         /// </summary>
         public static string Input
         {
-            get
-            {
-                return INPUT;
-            }
+            get { return INPUT; }
         }
+
         /// <summary>
         /// Place holder for an InputField's prompt label element. 
         /// For use only with the InputField.Template property.
         /// </summary>
         public static string Prompt
         {
-            get
-            {
-                return PROMPT;
-            }
+            get { return PROMPT; }
         }
+
         /// <summary>
         /// Place holder for an InputField's error label element. 
         /// For use only with the InputField.Template property.
         /// </summary>
         public static string Error
         {
-            get
-            {
-                return ERROR;
-            }
+            get { return ERROR; }
         }
+
         /// <summary>
         /// Place holder for a Literal field's html. 
         /// For use only with the Literal.Template property.
         /// </summary>
         public static string Literal
         {
-            get
-            {
-                return LITERAL;
-            }
+            get { return LITERAL; }
         }
+
         /// <summary>
         /// Place holder for a Form's serialized state as a hidden html input element. 
         /// For use only with the Form.Template property.
         /// </summary>
         public static string SerializedForm
         {
-            get
-            {
-                return SERIALIZEDFORM;
-            }
+            get { return SERIALIZEDFORM; }
         }
+
         /// <summary>
         /// Place holder for Form's Fields' client-side data represented as JSON in an HTML script element.
         /// For use only with the Form.Template property.
         /// </summary>
         public static string DataScript
         {
-            get
-            {
-                return DATASCRIPT;
-            }
+            get { return DATASCRIPT; }
         }
+
         /// <summary>
         /// Place holder for a Field's wrapping element's ID attribute value.
         /// The wrapping element is given a unique ID for DOM manipulation purposes.
@@ -108,11 +94,8 @@
         /// </summary>
         public static string FieldWrapperId
         {
-            get
-            {
-                return FIELDWRAPPERID;
-            }
-        }        
+            get { return FIELDWRAPPERID; }
+        }
 
         internal static StringBuilder RemoveAll(StringBuilder html)
         {

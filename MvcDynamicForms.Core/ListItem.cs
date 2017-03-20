@@ -10,9 +10,18 @@
         public string Value { get; set; }
         public bool Selected { get; set; }
 
-        public ListItem() { }
-        public ListItem(string value) : this(value, value) { }
-        public ListItem(string text, string value) : this(text, value, false) { }
+        public ListItem()
+        {
+        }
+
+        public ListItem(string value) : this(value, value)
+        {
+        }
+
+        public ListItem(string text, string value) : this(text, value, false)
+        {
+        }
+
         public ListItem(string text, string value, bool selected)
         {
             this.Text = text;
@@ -29,8 +38,8 @@
         public override bool Equals(object obj)
         {
             return obj != null
-                && obj is ListItem
-                && obj.ToString() == this.ToString();
+                   && obj is ListItem
+                   && obj.ToString() == this.ToString();
         }
 
         public override int GetHashCode()

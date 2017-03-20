@@ -3,7 +3,6 @@
     using System;
     using System.Text;
     using System.Web.Mvc;
-
     using MvcDynamicForms.Core.Fields.Abstract;
 
     /// <summary>
@@ -24,6 +23,7 @@
             }
             set { this._inputHtmlAttributes["size"] = value.ToString(); }
         }
+
         /// <summary>
         /// Determines whether the select element will accept multiple selections.
         /// </summary>
@@ -40,10 +40,12 @@
             }
             set { this._inputHtmlAttributes["multiple"] = value.ToString(); }
         }
+
         /// <summary>
         /// The text to be rendered as the first option in the select list when ShowEmptyOption is set to true.
         /// </summary>
         public string EmptyOption { get; set; }
+
         /// <summary>
         /// Determines whether a valueless option is rendered as the first option in the list.
         /// </summary>
@@ -93,7 +95,7 @@
             {
                 var opt = new TagBuilder("option");
                 opt.Attributes.Add("value", choice.Value);
-                if (choice.Selected) 
+                if (choice.Selected)
                     opt.Attributes.Add("selected", "selected");
                 opt.MergeAttributes(choice.HtmlAttributes);
                 opt.SetInnerText(choice.Text);

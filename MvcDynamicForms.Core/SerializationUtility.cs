@@ -14,11 +14,13 @@
             new LosFormatter().Serialize(writer, obj);
             return writer.ToString();
         }
+
         public static T Deserialize<T>(string data)
         {
             if (data == null) return default(T);
-            return (T)(new LosFormatter()).Deserialize(data);
+            return (T) (new LosFormatter()).Deserialize(data);
         }
+
         /// <summary>
         /// Creates a JSON graph of all of the field's client-side data.
         /// </summary>
@@ -26,7 +28,7 @@
         {
             var main = new Dictionary<string, Dictionary<string, object>>();
             foreach (var item in dict)
-            {                
+            {
                 var temp = new Dictionary<string, object>();
                 foreach (var item2 in item.Value.Where(x => x.Value.ClientSide))
                     temp.Add(item2.Key, item2.Value.Value);

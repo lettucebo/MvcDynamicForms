@@ -4,7 +4,6 @@
     using System.Linq;
     using System.Text;
     using System.Web.Mvc;
-
     using MvcDynamicForms.Core.Enums;
     using MvcDynamicForms.Core.Fields.Abstract;
 
@@ -29,7 +28,8 @@
             if (!this.ErrorIsClear)
             {
                 var error = new TagBuilder("label");
-                error.AddCssClass(this._errorClass); ;
+                error.AddCssClass(this._errorClass);
+                ;
                 error.SetInnerText(this.Error);
                 html.Replace(PlaceHolders.Error, error.ToString());
             }

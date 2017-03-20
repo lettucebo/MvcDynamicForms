@@ -23,74 +23,62 @@
         /// Used to identify InputFields when working with end users' responses.
         /// </summary>
         public string ResponseTitle { get; set; }
+
         /// <summary>
         /// The question asked of the end user.
         /// </summary>
         public string Prompt { get; set; }
+
         /// <summary>
         /// The html class applied to the label element that is used to prompt the user.
         /// </summary>
         public string PromptClass
         {
-            get
-            {
-                return this._promptClass;
-            }
-            set
-            {
-                this._promptClass = value;
-            }
+            get { return this._promptClass; }
+            set { this._promptClass = value; }
         }
+
         /// <summary>
         /// String representing the user's response to the field.
         /// </summary>
         public abstract string Response { get; }
+
         /// <summary>
         /// Whether the field must be completed to be valid.
         /// </summary>
         public bool Required { get; set; }
+
         /// <summary>
         /// The error message that the end user sees if they do not complete the field.
         /// </summary>
         public string RequiredMessage
         {
-            get
-            {
-                return this._requiredMessage;
-            }
-            set
-            {
-                this._requiredMessage = value;
-            }
+            get { return this._requiredMessage; }
+            set { this._requiredMessage = value; }
         }
+
         /// <summary>
         /// The error message that the end user sees.
         /// </summary>
         public string Error { get; set; }
+
         /// <summary>
         /// The class attribute of the label element that is used to display an error message to the user.
         /// </summary>
         public string ErrorClass
         {
-            get
-            {
-                return this._errorClass;
-            }
-            set
-            {
-                this._errorClass = value;
-            }
+            get { return this._errorClass; }
+            set { this._errorClass = value; }
         }
+
         /// <summary>
         /// True if the field is valid; false otherwise.
         /// </summary>
         public bool ErrorIsClear
         {
-            get
-            {
-                return string.IsNullOrEmpty(this.Error);
-            }
+            get { return string.IsNullOrEmpty(this.Error); }
         }
+
         /// <summary>
         /// Collection of html attribute names and values that will be applied to the rendered input elements.
         /// For list fields, these will be applied to every ListItem.
@@ -98,20 +86,16 @@
         /// </summary>
         public Dictionary<string, string> InputHtmlAttributes
         {
-            get
-            {
-                return this._inputHtmlAttributes;
-            }
-            set
-            {
-                this._inputHtmlAttributes = value;
-            }
+            get { return this._inputHtmlAttributes; }
+            set { this._inputHtmlAttributes = value; }
         }
+
         /// <summary>
         /// Validates the user's response.
         /// </summary>
         /// <returns></returns>
         public abstract bool Validate();
+
         /// <summary>
         /// Removes the message stored in the Error property.
         /// </summary>
@@ -142,14 +126,12 @@
         protected virtual void FireValidated()
         {
             if (this.Validated != null)
-                this.Validated(this, new InputFieldValidationEventArgs { IsValid = this.ErrorIsClear });
+                this.Validated(this, new InputFieldValidationEventArgs {IsValid = this.ErrorIsClear});
         }
-
     }
 
     public class InputFieldValidationEventArgs : EventArgs
     {
         public bool IsValid { get; set; }
     }
-
 }

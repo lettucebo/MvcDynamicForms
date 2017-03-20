@@ -4,7 +4,6 @@
     using System.Linq;
     using System.Text;
     using System.Web.Mvc;
-
     using MvcDynamicForms.Core.Enums;
     using MvcDynamicForms.Core.Fields.Abstract;
 
@@ -37,7 +36,8 @@
             // list of radio buttons        
             var input = new StringBuilder();
             var ul = new TagBuilder("ul");
-            ul.Attributes.Add("class", this._orientation == Orientation.Vertical ? this._verticalClass : this._horizontalClass);
+            ul.Attributes.Add("class",
+                this._orientation == Orientation.Vertical ? this._verticalClass : this._horizontalClass);
             ul.AddCssClass(this._listClass);
             input.Append(ul.ToString(TagRenderMode.StartTag));
 
@@ -57,7 +57,7 @@
                 rad.Attributes.Add("name", inputName);
                 rad.Attributes.Add("id", radId);
                 rad.Attributes.Add("value", choice.Value);
-                if (choice.Selected) 
+                if (choice.Selected)
                     rad.Attributes.Add("checked", "checked");
                 rad.MergeAttributes(this._inputHtmlAttributes);
                 rad.MergeAttributes(choice.HtmlAttributes);
@@ -80,7 +80,6 @@
             html.Replace(PlaceHolders.FieldWrapperId, this.GetWrapperId());
 
             return html.ToString();
-            
         }
     }
 }

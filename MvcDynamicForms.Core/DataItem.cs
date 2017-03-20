@@ -1,5 +1,4 @@
-﻿
-namespace MvcDynamicForms.Core
+﻿namespace MvcDynamicForms.Core
 {
     using System;
 
@@ -19,6 +18,7 @@ namespace MvcDynamicForms.Core
         /// The stored object.
         /// </summary>
         public object Value { get; set; }
+
         /// <summary>
         /// Whether to render the data.
         /// </summary>

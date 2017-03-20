@@ -35,34 +35,25 @@
                 this.AddChoices(value);
             }
         }
+
         /// <summary>
         /// The choices that the end user can choose from.
         /// </summary>
         public List<ListItem> Choices
         {
-            get
-            {
-                return this._choices;
-            }
-            set
-            {
-                this._choices = value;
-            }
+            get { return this._choices; }
+            set { this._choices = value; }
         }
+
         /// <summary>
         /// The text used to delimit multiple choices from the end user.
         /// </summary>
         public string ResponseDelimiter
         {
-            get
-            {
-                return this._responseDelimiter;
-            }
-            set
-            {
-                this._responseDelimiter = value;
-            }
+            get { return this._responseDelimiter; }
+            set { this._responseDelimiter = value; }
         }
+
         public override string Response
         {
             get
@@ -78,6 +69,7 @@
                 return value.ToString().TrimEnd(this._responseDelimiter.ToCharArray()).Trim();
             }
         }
+
         public override bool Validate()
         {
             this.ClearError();
@@ -107,6 +99,7 @@
                 .ToList()
                 .ForEach(c => this._choices.Add(new ListItem(c)));
         }
+
         /// <summary>
         /// Provides a convenient way to add choices.
         /// </summary>
@@ -115,7 +108,5 @@
         {
             this.AddChoices(choices, ",");
         }
-
-
     }
 }

@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-
     using MvcDynamicForms.Core.Fields.Abstract;
 
     /// <summary>
@@ -23,7 +22,7 @@
         internal void ValidateKey(string key)
         {
             if (string.IsNullOrEmpty(key))
-                throw new ArgumentException("Field keys cannot be null nor empty.");            
+                throw new ArgumentException("Field keys cannot be null nor empty.");
 
             if (this._fields.Select(x => x.Key).Contains(key))
                 throw new DuplicateException(string.Format(@"The key ""{0}"" is in use by another field.", key));
@@ -51,10 +50,7 @@
 
         public Field this[int index]
         {
-            get
-            {
-                return this._fields[index];
-            }
+            get { return this._fields[index]; }
             set
             {
                 this.ValidateKey(value.Key);
@@ -91,10 +87,7 @@
 
         public int Count
         {
-            get
-            {
-                return this._fields.Count;
-            }
+            get { return this._fields.Count; }
         }
 
         public bool IsReadOnly

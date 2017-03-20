@@ -2,12 +2,9 @@
 {
     internal static class MagicStrings
     {
-        internal static string MvcDynamicSerializedForm 
+        internal static string MvcDynamicSerializedForm
         {
-            get
-            { 
-                return "MvcDynamicSerializedForm"; 
-            } 
+            get { return "MvcDynamicSerializedForm"; }
         }
     }
 }

@@ -3,7 +3,6 @@
     using System;
     using System.Text;
     using System.Web.Mvc;
-
     using MvcDynamicForms.Core.Fields.Abstract;
 
     /// <summary>
@@ -39,7 +38,7 @@
             txt.Attributes.Add("name", inputName);
             txt.Attributes.Add("id", inputName);
             txt.Attributes.Add("type", "text");
-            txt.Attributes.Add("value", this.Value);            
+            txt.Attributes.Add("value", this.Value);
             txt.MergeAttributes(this._inputHtmlAttributes);
             html.Replace(PlaceHolders.Input, txt.ToString(TagRenderMode.SelfClosing));
 

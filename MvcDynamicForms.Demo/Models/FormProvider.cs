@@ -1,7 +1,6 @@
 ﻿namespace MvcDynamicForms.Demo.Models
 {
     using System;
-
     using MvcDynamicForms.Core;
     using MvcDynamicForms.Core.Enums;
     using MvcDynamicForms.Core.Fields;
@@ -65,7 +64,8 @@
                 Key = "description",
                 Template = String.Format("<p>{0}</p>", PlaceHolders.Literal),
                 DisplayOrder = 10,
-                Html = "This is a dynamically generated form. All of the input fields on this form are generated at runtime."
+                Html =
+                    "This is a dynamically generated form. All of the input fields on this form are generated at runtime."
             };
 
             var name = new TextBox
@@ -94,7 +94,8 @@
                 Prompt = "Enter your email address:",
                 Required = true,
                 RegexMessage = "Must be a valid email address",
-                RegularExpression = @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+                RegularExpression =
+                    @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
             };
 
             var sports = new CheckBoxList
@@ -114,7 +115,9 @@
                 Size = 10,
                 Prompt = "What US states have you visited? (Use the ctrl key to select multiple states.)"
             };
-            states.AddChoices("Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,New Hampshire,New Jersey,New Mexico,New York,North Carolina,North Dakota,Ohio,Oklahoma,Oregon,Pennsylvania,Rhode Island,South Carolina,South Dakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,West Virginia,Wisconsin,Wyoming", ",");
+            states.AddChoices(
+                "Alabama,Alaska,Arizona,Arkansas,California,Colorado,Connecticut,Delaware,Florida,Georgia,Hawaii,Idaho,Illinois,Indiana,Iowa,Kansas,Kentucky,Louisiana,Maine,Maryland,Massachusetts,Michigan,Minnesota,Mississippi,Missouri,Montana,Nebraska,Nevada,New Hampshire,New Jersey,New Mexico,New York,North Carolina,North Dakota,Ohio,Oklahoma,Oregon,Pennsylvania,Rhode Island,South Carolina,South Dakota,Tennessee,Texas,Utah,Vermont,Virginia,Washington,West Virginia,Wisconsin,Wyoming",
+                ",");
 
             var bio = new TextArea
             {
@@ -133,7 +136,8 @@
                 ShowEmptyOption = true,
                 EmptyOption = "- Select One - "
             };
-            month.AddChoices("January,February,March,April,May,June,July,August,September,October,November,December", ",");
+            month.AddChoices("January,February,March,April,May,June,July,August,September,October,November,December",
+                ",");
 
             var agree = new CheckBox
             {
@@ -147,7 +151,8 @@
             var eula = new Literal
             {
                 DisplayOrder = 75,
-                Html = string.Format(@"<textarea readonly=""readonly"" rows=""8"" cols=""60"">{0}</textarea>", GetEULA())
+                Html =
+                    string.Format(@"<textarea readonly=""readonly"" rows=""8"" cols=""60"">{0}</textarea>", GetEULA())
             };
 
             var file = new FileUpload
@@ -183,7 +188,6 @@
 
         static void file_Validated(InputField inputField, InputFieldValidationEventArgs e)
         {
-
             // here, you can also do something with the posted file
             // (save it, email it, etc, or test it and report back to the user)
             // this event gets fired following the validation of any class derived from InputField
@@ -202,7 +206,6 @@
                 {
                     //fileUpload.PostedFile.SaveAs(fileUpload.PostedFile.FileName);
                 }
-
             }
         }
 
@@ -297,6 +300,5 @@ NO WARRANTY
 
 12. IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MAY MODIFY AND/OR REDISTRIBUTE THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.";
         }
-
     }
 }

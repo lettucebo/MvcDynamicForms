@@ -3,7 +3,6 @@
     using System;
     using System.Text;
     using System.Web.Mvc;
-
     using MvcDynamicForms.Core.Fields.Abstract;
 
     /// <summary>
@@ -22,10 +21,7 @@
         /// </summary>
         public override string Response
         {
-            get
-            {
-                return this.Value;
-            }
+            get { return this.Value; }
         }
 
         /// <summary>
@@ -64,6 +60,5 @@
         {
             return PlaceHolders.Input;
         }
-
     }
 }

@@ -6,7 +6,6 @@
     using System.Text;
     using System.Web.Mvc;
     using System.Xml.Linq;
-
     using MvcDynamicForms.Core.Fields;
     using MvcDynamicForms.Core.Fields.Abstract;
 
@@ -19,6 +18,7 @@
     {
         private string _fieldPrefix = "MvcDynamicField_";
         private FieldList _fields;
+
         public string Template { get; set; }
 
         /// <summary>
@@ -26,39 +26,30 @@
         /// </summary>
         public FieldList Fields
         {
-            get
-            {
-                return this._fields;
-            }
+            get { return this._fields; }
         }
+
         /// <summary>
         /// Gets or sets the string that is used to prefix html input elements' id and name attributes.
         /// This value must comply with the naming rules for HTML id attributes and Input elements' name attributes.
         /// </summary>
         public string FieldPrefix
         {
-            get
-            {
-                return this._fieldPrefix;
-            }
-            set
-            {
-                this._fieldPrefix = value ?? "";
-            }
+            get { return this._fieldPrefix; }
+            set { this._fieldPrefix = value ?? ""; }
         }
+
         /// <summary>
         /// Gets or sets the boolean value determining if the form should serialize itself into the string returned by the RenderHtml() method.
         /// </summary>
         public bool Serialize { get; set; }
+
         /// <summary>
         /// Returns an enumeration of Field objects that are of type InputField.
         /// </summary>
         public IEnumerable<InputField> InputFields
         {
-            get
-            {
-                return this._fields.OfType<InputField>();
-            }
+            get { return this._fields.OfType<InputField>(); }
         }
 
         public Form()
@@ -103,6 +94,7 @@
 
             return null;
         }
+
         /// <summary>
         /// Validates each displayed InputField object contained in the Fields collection. 
         /// Validation causes the Error property to be set for each InputField object.
@@ -112,6 +104,7 @@
         {
             return this.Validate(true);
         }
+
         /// <summary>
         /// Validates each displayed InputField object contained in the Fields collection. 
         /// Validation causes the Error property to be set for each InputField object.
@@ -127,6 +120,7 @@
 
             return isValid;
         }
+
         /// <summary>
         /// Returns a string containing the rendered HTML of every contained Field object.
         /// Optionally, the form's serialized state and/or JavaScript data can be included in the returned HTML string.
@@ -161,6 +155,7 @@
 
             return html.ToString();
         }
+
         /// <summary>
         /// Returns a string containing the rendered html of every contained Field object. The html can optionally include the Form object's state serialized into a hidden field.
         /// </summary>
@@ -169,6 +164,7 @@
         {
             return this.RenderHtml(false);
         }
+
         /// <summary>
         /// This method clears the Error property of each contained InputField.
         /// </summary>
@@ -177,6 +173,7 @@
             foreach (var inputField in this.InputFields)
                 inputField.ClearError();
         }
+
         /// <summary>
         /// This method provides a convenient way of adding multiple Field objects at once.
         /// </summary>
@@ -188,6 +185,7 @@
                 this._fields.Add(field);
             }
         }
+
         /// <summary>
         /// Provides a convenient way the end users' responses to each InputField
         /// </summary>
@@ -212,6 +210,7 @@
 
             return responses;
         }
+
         /// <summary>
         /// Provides a convenient way to set the template for multiple fields.
         /// </summary>
@@ -225,7 +224,7 @@
         internal void FireModelBoundEvents()
         {
             foreach (var fileUpload in this.Fields.Where(x => x is FileUpload).Cast<FileUpload>())
-            {               
+            {
                 fileUpload.FireFilePosted();
             }
         }

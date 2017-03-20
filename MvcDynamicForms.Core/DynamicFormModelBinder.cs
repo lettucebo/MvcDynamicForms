@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
     using System.Web.Mvc;
-
     using MvcDynamicForms.Core.Fields;
     using MvcDynamicForms.Core.Fields.Abstract;
 
@@ -16,14 +15,15 @@
 
             var allKeys = postedForm.AllKeys.Union(postedFiles.AllKeys);
 
-            var form = (Form)bindingContext.Model;
+            var form = (Form) bindingContext.Model;
             if (form == null && !string.IsNullOrEmpty(postedForm[MagicStrings.MvcDynamicSerializedForm]))
             {
                 form = SerializationUtility.Deserialize<Form>(postedForm[MagicStrings.MvcDynamicSerializedForm]);
             }
 
             if (form == null)
-                throw new NullReferenceException("The dynamic form object was not found. Be sure to include PlaceHolders.SerializedForm in your form template.");            
+                throw new NullReferenceException(
+                    "The dynamic form object was not found. Be sure to include PlaceHolders.SerializedForm in your form template.");
 
             foreach (var key in allKeys.Where(x => x.StartsWith(form.FieldPrefix)))
             {
@@ -35,12 +35,12 @@
 
                 if (dynField is TextField)
                 {
-                    var txtField = (TextField)dynField;
+                    var txtField = (TextField) dynField;
                     txtField.Value = postedForm[key];
                 }
                 else if (dynField is ListField)
                 {
-                    var lstField = (ListField)dynField;
+                    var lstField = (ListField) dynField;
 
                     // clear all choice selections            
                     foreach (var choice in lstField.Choices)
@@ -58,17 +58,17 @@
                 }
                 else if (dynField is CheckBox)
                 {
-                    var chkField = (CheckBox)dynField;
+                    var chkField = (CheckBox) dynField;
                     chkField.Checked = bool.Parse(postedForm.GetValues(key)[0]);
                 }
                 else if (dynField is FileUpload)
                 {
-                    var fileField = (FileUpload)dynField;
+                    var fileField = (FileUpload) dynField;
                     fileField.PostedFile = postedFiles[key];
                 }
                 else if (dynField is Hidden)
                 {
-                    var hiddenField = (Hidden)dynField;
+                    var hiddenField = (Hidden) dynField;
                     hiddenField.Value = postedForm[key];
                 }
             }

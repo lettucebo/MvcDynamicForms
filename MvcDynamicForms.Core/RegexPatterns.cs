@@ -13,11 +13,9 @@
         /// </summary>
         public static string HtmlId
         {
-            get
-            {
-                return HTMLID;
-            }
-        }      
+            get { return HTMLID; }
+        }
+
         /// <summary>
         /// Matches a well-formed HTML input element's name attribute value. 
         /// Naming rules: Must begin with a letter A-Z or a-z.  
@@ -25,11 +23,9 @@
         /// </summary>
         public static string HtmlInputName
         {
-            get
-            {
-                return HTMLINPUTNAME;
-            }
+            get { return HTMLINPUTNAME; }
         }
+
         /// <summary>
         /// A practical regular expression used to validate email addresses.
         /// This will match the vast majority of email addresses in use.
@@ -38,10 +34,7 @@
         /// </summary>
         public static string EmailAddress
         {
-            get
-            {                
-                return EMAILADDRESS;
-            }
+            get { return EMAILADDRESS; }
         }
     }
 }

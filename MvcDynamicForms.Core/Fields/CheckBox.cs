@@ -3,7 +3,6 @@
     using System;
     using System.Text;
     using System.Web.Mvc;
-
     using MvcDynamicForms.Core.Fields.Abstract;
 
     /// <summary>
@@ -20,29 +19,19 @@
         /// </summary>
         public string CheckedValue
         {
-            get
-            {
-                return this._checkedValue;
-            }
-            set
-            {
-                this._checkedValue = value;
-            }
+            get { return this._checkedValue; }
+            set { this._checkedValue = value; }
         }
+
         /// <summary>
         /// The text to be used as the user's response when they do not check the checkbox.
         /// </summary>
         public string UncheckedValue
         {
-            get
-            {
-                return this._uncheckedValue;
-            }
-            set
-            {
-                this._uncheckedValue = value;
-            }
+            get { return this._uncheckedValue; }
+            set { this._uncheckedValue = value; }
         }
+
         /// <summary>
         /// The state of the checkbox.
         /// </summary>
@@ -50,10 +39,7 @@
 
         public override string Response
         {
-            get
-            {
-                return this.Checked ? this._checkedValue : this._uncheckedValue;
-            }
+            get { return this.Checked ? this._checkedValue : this._uncheckedValue; }
         }
 
         public CheckBox()
@@ -106,7 +92,8 @@
             hdn.Attributes.Add("id", inputName + "_hidden");
             hdn.Attributes.Add("name", inputName);
             hdn.Attributes.Add("value", bool.FalseString);
-            html.Replace(PlaceHolders.Input, chk.ToString(TagRenderMode.SelfClosing) + hdn.ToString(TagRenderMode.SelfClosing));
+            html.Replace(PlaceHolders.Input,
+                chk.ToString(TagRenderMode.SelfClosing) + hdn.ToString(TagRenderMode.SelfClosing));
 
             // prompt label
             var prompt = new TagBuilder("label");

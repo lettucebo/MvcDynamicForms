@@ -15,37 +15,29 @@
         /// A regular expression that will be applied to the user's text respone for validation.
         /// </summary>
         public string RegularExpression { get; set; }
+
         /// <summary>
         /// The error message that is displayed to the user when their response does no match the regular expression.
         /// </summary>
         public string RegexMessage
         {
-            get
-            {
-                return this._regexMessage;
-            }
-            set
-            {
-                this._regexMessage = value;
-            }
+            get { return this._regexMessage; }
+            set { this._regexMessage = value; }
         }
+
         private string _value;
+
         public string Value
         {
-            get
-            {
-                return this._value ?? "";
-            }
-            set
-            {
-                this._value = value;
-            }
+            get { return this._value ?? string.Empty; }
+            set { this._value = value; }
         }
 
         public override string Response
         {
             get { return this.Value.Trim(); }
         }
+
         public override bool Validate()
         {
             this.ClearError();

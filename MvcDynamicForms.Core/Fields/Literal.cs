@@ -2,7 +2,6 @@
 {
     using System;
     using System.Text;
-
     using MvcDynamicForms.Core.Fields.Abstract;
 
     /// <summary>
@@ -30,7 +29,6 @@
         protected override string BuildDefaultTemplate()
         {
             return PlaceHolders.Literal;
-            
         }
     }
 }

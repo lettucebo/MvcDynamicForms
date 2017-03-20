@@ -6,18 +6,16 @@
     using System.Text;
     using System.Web;
     using System.Web.Mvc;
-
     using MvcDynamicForms.Core.Fields.Abstract;
 
-    public delegate void FilePostedEventHandler( FileUpload fileUploadField, EventArgs e);
+    public delegate void FilePostedEventHandler(FileUpload fileUploadField, EventArgs e);
 
     [Serializable]
     public class FileUpload : InputField
     {
         public event FilePostedEventHandler Posted;
 
-        [NonSerialized]
-        private HttpPostedFileBase _postedFile;
+        [NonSerialized] private HttpPostedFileBase _postedFile;
         private string _invalidExtensionError = "Invalid File Type";
 
         public string InvalidExtensionError
@@ -39,10 +37,7 @@
 
         public bool FileWasPosted
         {
-            get
-            {
-                return this.PostedFile != null && !string.IsNullOrEmpty(this.PostedFile.FileName);
-            }
+            get { return this.PostedFile != null && !string.IsNullOrEmpty(this.PostedFile.FileName); }
         }
 
         public override string Response
@@ -60,7 +55,7 @@
             }
             else if (!string.IsNullOrEmpty(this.ValidExtensions))
             {
-                var exts = this.ValidExtensions.ToUpper().Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                var exts = this.ValidExtensions.ToUpper().Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries);
                 if (!exts.Contains(Path.GetExtension(this.PostedFile.FileName).ToUpper()))
                 {
                     this.Error = this.InvalidExtensionError;
@@ -112,5 +107,5 @@
             if (this.FileWasPosted && this.Posted != null)
                 this.Posted(this, new EventArgs());
         }
-    }    
+    }
 }

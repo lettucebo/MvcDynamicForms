@@ -1,7 +1,6 @@
 ﻿namespace MvcDynamicForms.Core.Fields.Abstract
 {
     using System;
-
     using MvcDynamicForms.Core.Enums;
 
     /// <summary>
@@ -21,70 +20,44 @@
         /// </summary>
         public Orientation Orientation
         {
-            get
-            {
-                return this._orientation;
-            }
-            set
-            {
-                this._orientation = value;
-            }
+            get { return this._orientation; }
+            set { this._orientation = value; }
         }
+
         /// <summary>
         /// The class attribute of the label element used to display the user's choice.
         /// </summary>
         public string InputLabelClass
         {
-            get
-            {
-                return this._inputLabelClass;
-            }
-            set
-            {
-                this._inputLabelClass = value;
-            }
+            get { return this._inputLabelClass; }
+            set { this._inputLabelClass = value; }
         }
+
         /// <summary>
         /// The class attribute that is added to the ul element when using vertical orientation.
         /// </summary>
         public string VerticalClass
         {
-            get
-            {
-                return this._verticalClass;
-            }
-            set
-            {
-                this._verticalClass = value;
-            }
+            get { return this._verticalClass; }
+            set { this._verticalClass = value; }
         }
+
         /// <summary>
         /// The class attribute that is added to the ul element when using horizontal orientation.
         /// </summary>
         public string HorizontalClass
         {
-            get
-            {
-                return this._horizontalClass;
-            }
-            set
-            {
-                this._horizontalClass = value;
-            }
-        }        
+            get { return this._horizontalClass; }
+            set { this._horizontalClass = value; }
+        }
+
         /// <summary>
         /// The class attribute that is added to the ul element containing the choices.
         /// </summary>
         public string ListClass
         {
-            get
-            {
-                return this._listClass;
-            }
-            set
-            {
-                this._listClass = value;
-            }
+            get { return this._listClass; }
+            set { this._listClass = value; }
         }
     }
 }

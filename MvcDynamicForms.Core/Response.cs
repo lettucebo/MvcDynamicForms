@@ -9,6 +9,7 @@
         /// The response title of the InputField object.
         /// </summary>
         public string Title { get; set; }
+
         /// <summary>
         /// The user's response.
         /// </summary>
