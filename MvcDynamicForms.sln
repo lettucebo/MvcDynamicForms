@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcDynamicForms.Core", "MvcDynamicForms.Core\MvcDynamicForms.Core.csproj", "{9624E64A-013F-41E8-84BA-C34EE744685E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcDynamicForms.Demo", "MvcDynamicForms.Demo\MvcDynamicForms.Demo.csproj", "{5CD10DC0-E828-444B-8C94-4FAECE050D08}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcDynamicForms.Nuget", "MvcDynamicForms.Nuget\MvcDynamicForms.Nuget.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +21,11 @@ Global
 		{5CD10DC0-E828-444B-8C94-4FAECE050D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD10DC0-E828-444B-8C94-4FAECE050D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CD10DC0-E828-444B-8C94-4FAECE050D08}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48B3499E-84C7-4869-86CB-A37D09C9CC06}
 	EndGlobalSection
 EndGlobal

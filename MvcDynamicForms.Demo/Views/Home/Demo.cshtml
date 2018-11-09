@@ -14,6 +14,10 @@
 }
 
 @section scripts{
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
     <script type="text/javascript">
         /* You can build in client side funcationality with dynamic forms also.
         jQuery is very good for this sort of thing. */
@@ -24,6 +28,11 @@
             $('div.MvcFieldWrapper :input').focus(function () {
                 $(this).closest('div.MvcFieldWrapper').children('label.MvcDynamicFieldError').fadeOut();
             });
+
+            // for demo5
+            $(".datepicker").datepicker();
+
+            $("#MvcDynamicField_Birthday").datepicker();
         });
     </script>
 }

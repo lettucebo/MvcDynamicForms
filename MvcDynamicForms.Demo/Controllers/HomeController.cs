@@ -143,5 +143,42 @@
 
             return this.View("Demo", form);
         }
+
+        public ActionResult Demo5()
+        {
+            var attr1 = new Dictionary<string, string>();
+            attr1.Add("class", "form-control datepicker");
+            attr1.Add("placeholder", "Please Enter Birthday");
+
+            var birth1 = new TextBox
+            {
+                ResponseTitle = "Birthday1",
+                Prompt = "Enter your birthday1:",
+                DisplayOrder = 20,
+                Required = true,
+                RequiredMessage = "Your birthday1 is required",
+                InputHtmlAttributes = attr1
+            };
+
+            var attr2 = new Dictionary<string, string>();
+            attr2.Add("class", "form-control");
+            attr2.Add("placeholder", "Please Enter Birthday");
+            var birth2 = new TextBox
+            {
+                Key = "Birthday",
+                ResponseTitle = "Birthday2",
+                Prompt = "Enter your birthday2:",
+                DisplayOrder = 20,
+                Required = true,
+                RequiredMessage = "Your birthday2 is required",
+                InputHtmlAttributes = attr2
+            };
+
+            var form = new Form();
+            form.AddFields(birth1);
+            form.AddFields(birth2);
+
+            return this.View("Demo", form);
+        }
     }
 }
